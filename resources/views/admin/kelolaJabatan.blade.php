@@ -22,8 +22,8 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Data Jabatan CakeCode</h1>
-    <p class="mb-4">Seluruh data jabatan yang ada di Database Aplikasi Penggajian CakeCode</p>
+    <h1 class="h3 mb-2 text-gray-800">Data Jabatan Hadiyani & Partners Law Firm</h1>
+    <p class="mb-4">Seluruh data jabatan yang ada di Database Aplikasi E-Payroll Hadiyani & Partners Law Firm</p>
     @if (session()->has('jabatan_update'))
     <div class="alert alert-info alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>

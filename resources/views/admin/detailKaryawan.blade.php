@@ -78,7 +78,10 @@
     <div class="row">
         <div class="col-md-4">
             <div class="profile-img">
-                <img src="{{ URL::asset('img/employeePic/'.$employee->profile_pic) }}" alt="" />
+                <img
+                src="{{ URL::asset('img/employeePic/'.$employee->profile_pic) }}"
+                alt="{{ $employee->full_name }}" width="100" class="img-thumbnail"
+                onerror="this.onerror=null;this.src='{{ URL::asset('img/employeePic/default.png') }}';">
             </div>
         </div>
         <div class="col-md-6">
@@ -122,6 +125,14 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
+                            <label>Nomor KTP</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ $employee->nik }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             <label>Nomor NPWP</label>
                         </div>
                         <div class="col-md-6">
@@ -133,7 +144,7 @@
                             <label>Jabatan</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{ $employee->position->position }}</p>
+                            <p>{{ $employee->position->position ?? '' }}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -157,7 +168,7 @@
                             <label>Pendidikan Terakhir</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{ $employee->education }}</p>
+                            <p>{{ $employee->education->name ?? '' }}</p>
                         </div>
                     </div>
                     <div class="row">

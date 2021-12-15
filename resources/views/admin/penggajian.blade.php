@@ -23,8 +23,8 @@
     <div class="row align-middle justify-content-between mx-3">
         <div class="col-6">
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Data Penggajian Karyawan CakeCode</h1>
-            <p class="mb-4">Seluruh data Penggajian karyawan yang ada di Database Aplikasi Penggajian CakeCode</p>
+            <h1 class="h3 mb-2 text-gray-800">Data Penggajian Karyawan Hadiyani & Partners Law Firm</h1>
+            <p class="mb-4">Seluruh data Penggajian karyawan yang ada di Database Aplikasi E-Payroll Hadiyani & Partners Law Firm</p>
         </div>
         {{-- <td><a href="#" class="status" data-type="select" data-pk="1" data-value="1" data-url="{{ url('api/admin/active') }}"
         data-title="Select status"></a></td> --}}
@@ -88,7 +88,6 @@
                 <table class="table table-bordered" id="dataPenggajian" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th class="text-center align-middle">Nip</th>
                             <th class="text-center align-middle">Nama Lengkap</th>
                             <th class="text-center align-middle">Jabatan</th>
                             <th class="text-center align-middle">Gaji Pokok</th>
@@ -102,16 +101,12 @@
                         @foreach ($employees as $row => $e)
                         @if ($postMonth.$postYear != Carbon\Carbon::now()->month.Carbon\Carbon::now()->year)
                         <tr>
-                            <td>{{ $e->user->nip }}</td>
                             <td>{{ $e->full_name }}</td>
                             <td>{{ $e->position->position }}</td>
                             <td>Rp. {{ number_format($e->position->salary,0,'','.') }}</td>
-                            <td>Rp. {{ number_format($hasilPenambahan[$row],0,'','.') }}
-                            </td>
+                            <td>Rp. {{ number_format($hasilPenambahan[$row],0,'','.') }}</td>
                             <td>Rp. {{ number_format($hasilPotongan[$row],0,'','.') }}</td>
-                            <td>Rp.
-                                {{ number_format($gajiBersih[$row],0,'','.') }}
-                            </td>
+                            <td>Rp. {{ number_format($gajiBersih[$row],0,'','.') }}</td>
                             <td class="text-center align-middle">
                                 <button title="Info Gaji" type="button" class="btn btn-info btn-sm" style="width: 50px;"
                                     data-toggle="modal" data-target=".bd-example-modal-lg{{ $e->id }}"><i
@@ -134,15 +129,8 @@
                                         </div>
                                         <div class="modal-body text-dark">
                                             <div class="row">
-                                                <div class="col-9 pl-5">
-                                                    <h2 class="text-left text-dark font-weight-bold mb-0 mt-1">
-                                                        CakeCode
-                                                    </h2>
-                                                    <h4 class="text-left text-dark">learn code with
-                                                        some cake</h4>
-                                                </div>
-                                                <div class="col-3 pr-4">
-                                                    <img src="{{ asset('img/logoWarna.png') }}" height="80px;">
+                                                <div class="col-12">
+                                                    <center><img src="{{ asset('img/logoo.png') }}"></center>
                                                 </div>
                                             </div>
                                             <hr class="sidebar-divider d-none d-md-block">
@@ -160,16 +148,13 @@
                                                             {{ $postYear }}</p>
                                                     </div>
                                                     <br><br><br><br><br>
-                                                    <div class="col-3">
-                                                        <p class="text-left mb-0" style="font-size: 12px">Nip</p>
+                                                    <div class="col-2">
                                                         <p class="text-left mb-0" style="font-size: 12px">Nama Lengkap
                                                         </p>
                                                         <p class="text-left mb-0" style="font-size: 12px">Jabatan</p>
+                                                        <p class="text-left mb-0" style="font-size: 12px">No. Hp</p>
                                                     </div>
-                                                    <div class="col-5">
-                                                        <p class="text-left mb-0 font-weight-bold"
-                                                            style="font-size: 12px">:
-                                                            &nbsp;{{ $e->user->nip }}</p>
+                                                    <div class="col-4">
                                                         <p class="text-left mb-0 font-weight-bold"
                                                             style="font-size: 12px">:
                                                             &nbsp;{{ $e->full_name }}</p>
@@ -177,6 +162,9 @@
                                                             style="font-size: 12px">:
                                                             &nbsp;{{ $e->position->position }}
                                                         </p>
+                                                        <p class="text-left mb-0 font-weight-bold"
+                                                        style="font-size: 12px">:
+                                                        &nbsp;{{ $e->phone }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row mt-3">
@@ -264,6 +252,13 @@
                                                         </h5>
                                                     </div>
                                                 </div>
+                                                <div class="row py-0">
+                                                    <div
+                                                        class="col-12 bg-primary text-light text-center font-weight-bold py-0">
+                                                        <h6 class="py-1 my-0">{{ Terbilang::make($gajiBersih[$row], ' rupiah', 'Terbilang: ') }}
+                                                        </h6>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -276,7 +271,6 @@
                         </tr>
                         @else
                         <tr>
-                            <td>{{ $e->user->nip }}</td>
                             <td>{{ $e->full_name }}</td>
                             <td>{{ $e->position->position }}</td>
                             <td>Rp. {{ number_format($e->position->salary,0,'','.') }}</td>
@@ -342,15 +336,8 @@
                                         </div>
                                         <div class="modal-body text-dark">
                                             <div class="row">
-                                                <div class="col-9 pl-5">
-                                                    <h2 class="text-left text-dark font-weight-bold mb-0 mt-1">
-                                                        CakeCode
-                                                    </h2>
-                                                    <h4 class="text-left text-dark">learn code with
-                                                        some cake</h4>
-                                                </div>
-                                                <div class="col-3 pr-4">
-                                                    <img src="{{ asset('img/logoWarna.png') }}" height="80px;">
+                                                <div class="col-12">
+                                                    <center><img src="{{ asset('img/logoo.png') }}"></center>
                                                 </div>
                                             </div>
                                             <hr class="sidebar-divider d-none d-md-block">
@@ -367,17 +354,14 @@
                                                             {{ Carbon\Carbon::now()->locale('id')->monthName }}
                                                             {{ $postYear }}</p>
                                                     </div>
-                                                    <br><br><br><br><br>
-                                                    <div class="col-3">
-                                                        <p class="text-left mb-0" style="font-size: 12px">Nip</p>
+                                                    <br><br><br>
+                                                    <div class="col-2">
                                                         <p class="text-left mb-0" style="font-size: 12px">Nama Lengkap
                                                         </p>
                                                         <p class="text-left mb-0" style="font-size: 12px">Jabatan</p>
+                                                        <p class="text-left mb-0" style="font-size: 12px">No. Hp</p>
                                                     </div>
-                                                    <div class="col-5">
-                                                        <p class="text-left mb-0 font-weight-bold"
-                                                            style="font-size: 12px">:
-                                                            &nbsp;{{ $e->user->nip }}</p>
+                                                    <div class="col-4">
                                                         <p class="text-left mb-0 font-weight-bold"
                                                             style="font-size: 12px">:
                                                             &nbsp;{{ $e->full_name }}</p>
@@ -385,6 +369,19 @@
                                                             style="font-size: 12px">:
                                                             &nbsp;{{ $e->position->position }}
                                                         </p>
+                                                        <p class="text-left mb-0 font-weight-bold"
+                                                            style="font-size: 12px">:
+                                                            &nbsp;{{ $e->phone }}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <p class="text-left mb-0" style="font-size: 12px">Alamat
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <p class="text-left mb-0 font-weight-bold"
+                                                            style="font-size: 12px">:
+                                                            &nbsp;{{ $e->address }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row mt-3">
@@ -481,7 +478,7 @@
                                                             <div class="col-7 pr-1">
                                                                 <p class="text-right mb-0 mt-1 font-weight-bold"
                                                                     style="font-size: 12px">
-                                                                    Total (A)
+                                                                    Total (B)
                                                                 </p>
                                                             </div>
                                                             <div class="col-5 p-0">
@@ -510,6 +507,13 @@
                                                             (A-B)&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;Rp.
                                                             {{ number_format($e->position->salary+$e->position->job_allowance+$totalPenambahan-$totalPotongan ,0,'','.') }}
                                                         </h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row py-0">
+                                                    <div
+                                                        class="col-12 bg-primary text-light text-center font-weight-bold py-0">
+                                                        <h6 class="py-1 my-0">{{ Terbilang::make($e->position->salary+$e->position->job_allowance+$totalPenambahan-$totalPotongan, ' rupiah', 'Terbilang: ') }}
+                                                        </h6>
                                                     </div>
                                                 </div>
                                             </div>

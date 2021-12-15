@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Presensi Karyawan CakeCode')
+@section('title', 'Presensi Karyawan Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -23,8 +23,8 @@
     <div class="row align-middle justify-content-between mx-3">
         <div class="col-6">
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Presensi karyawan CakeCode</h1>
-            <p class="mb-4">Seluruh data Presensi karyawan CakeCode</p>
+            <h1 class="h3 mb-2 text-gray-800">Presensi karyawan Hadiyani & Partners Law Firm</h1>
+            <p class="mb-4">Seluruh data Presensi karyawan Hadiyani & Partners Law Firm</p>
         </div>
         {{-- <td><a href="#" class="status" data-type="select" data-pk="1" data-value="1" data-url="{{ url('api/admin/active') }}"
         data-title="Select status"></a></td> --}}
@@ -60,7 +60,6 @@
                             <th>Hari</th>
                             <th>Tanggal</th>
                             <th>Jam</th>
-                            <th>Nip</th>
                             <th>Nama Lengkap</th>
                             <th>Status</th>
                             <th></th>
@@ -77,7 +76,6 @@
                                 {{ Carbon\Carbon::parse($presence->created_at)->year }}</td>
                             <td>{{ $presence->datetime ? Carbon\Carbon::parse($presence->datetime)->toTimeString() : '-' }}
                             </td>
-                            <td>{{ $presence->employee->user->nip }}</td>
                             <td>{{ $presence->employee->full_name }}</td>
                             <td style="font-weight: bolder"
                                 class="@if($presence->status ==  'h') text-primary @elseif($presence->status ==  'a') text-danger @else text-warning @endif">

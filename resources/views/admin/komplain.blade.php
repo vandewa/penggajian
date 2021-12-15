@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Komplain Karyawan CakeCode')
+@section('title', 'Komplain Karyawan Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -23,8 +23,8 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 text-gray-800">Komplain Karyawan CakeCode</h1>
-    <p class="mb-4">Seluruh data Komplain karyawan CakeCode</p>
+    <h1 class="h3 text-gray-800">Komplain Karyawan Hadiyani & Partners Law Firm</h1>
+    <p class="mb-4">Seluruh data komplain karyawan Hadiyani & Partners Law Firm</p>
     @if (session()->has('response'))
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -38,7 +38,6 @@
                 <table class="table table-hover table-bordered" id="dataComplaint" width="100%" cellspacing="0">
                     <thead>
                         <tr class="text-center">
-                            <th>Nip</th>
                             <th>Nama Lengkap</th>
                             <th>Jabatan</th>
                             <th>Subject</th>
@@ -50,7 +49,6 @@
                         @foreach ($complaints as $c)
                         <tr class="clickable-row" data-href="{{ url('admin/komplain/'.$c->id.'/respon') }}"
                             style="cursor: pointer">
-                            <td>{{ $c->employee->user->nip }}</td>
                             <td>{{ $c->employee->full_name }}</td>
                             <td>{{ $c->employee->position->position }}</td>
                             <td>{{ $c->subject }}</td>

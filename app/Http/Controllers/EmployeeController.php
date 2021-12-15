@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Complaint;
 use App\Employee;
+use App\Education;
 use App\Presence;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -120,6 +121,8 @@ class EmployeeController extends Controller
             }
         }
 
+
+
         return view('user/profile', compact('employee'));
     }
 
@@ -133,12 +136,14 @@ class EmployeeController extends Controller
     {
         $id = auth()->user()->employee->id;
         $employee = \App\Employee::find($id);
-        return view('user/editProfile', compact('employee'));
+        $education = \App\Education::all();
+        return view('user/editProfile', compact('employee', 'education'));
     }
 
     public function editAdmin(Employee $employee)
     {
-        return view('admin/editProfile', compact('employee'));
+        $education = \App\Education::all();
+        return view('admin/editProfile', compact('employee', 'education'));
     }
 
     /**
@@ -184,6 +189,10 @@ class EmployeeController extends Controller
 
         $employee->address = $request->alamat;
         $employee->phone = $request->telp;
+        $employee->nik = $request->nik;
+        $employee->npwp = $request->npwp;
+        $employee->education_id = $request->education_id;
+        $employee->come = $request->come;
         $employee->save();
 
         session()->flash('profile_update', 'Profile berhasil dirubah.');
@@ -220,6 +229,10 @@ class EmployeeController extends Controller
         $employee->phone = $request->telp;
         $employee->marital_status = $request->pernikahan;
         $employee->number_of_children = $request->anak;
+        $employee->nik = $request->nik;
+        $employee->npwp = $request->npwp;
+        $employee->education_id = $request->education_id;
+        $employee->come = $request->come;
         $employee->save();
 
         session()->flash('profile_update', 'Profile berhasil dirubah.');
