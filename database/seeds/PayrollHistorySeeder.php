@@ -20,21 +20,82 @@ class PayrollHistorySeeder extends Seeder
         PayrollHistory::updateOrCreate([
             'id' => 1,
             'employee_id' => 2,
-            'gaji_pokok' => 7500000,
-            'penambahan' => 500000,
-            'potongan' => 200000,
-            'gaji_bersih' => 7800000,
+            'gaji_pokok' => 15000000,
+            'penambahan' => 0,
+            'potongan' => 0,
+            'gaji_bersih' => 15000000,
             'created_at' => $z
         ]);
 
         PayrollHistory::updateOrCreate([
             'id' => 2,
             'employee_id' => 3,
-            'gaji_pokok' => 4000000,
-            'penambahan' => 250000,
-            'potongan' => 250000,
-            'gaji_bersih' => 4000000,
+            'gaji_pokok' => 2000000,
+            'penambahan' => 8000000,
+            'potongan' => 0,
+            'gaji_bersih' => 10000000,
+            'created_at' => $z
+        ]);
+
+        PayrollHistory::updateOrCreate([
+            'id' => 3,
+            'employee_id' => 4,
+            'gaji_pokok' => 2000000,
+            'penambahan' => 7000000,
+            'potongan' => 0,
+            'gaji_bersih' => 9000000,
+            'created_at' => $z
+        ]);
+
+        PayrollHistory::updateOrCreate([
+            'id' => 4,
+            'employee_id' => 5,
+            'gaji_pokok' => 5000000,
+            'penambahan' => 280000,
+            'potongan' => 0,
+            'gaji_bersih' => 5280000,
+            'created_at' => $z
+        ]);
+
+        PayrollHistory::updateOrCreate([
+            'id' => 5,
+            'employee_id' => 6,
+            'gaji_pokok' => 4600000,
+            'penambahan' => 630000,
+            'potongan' => 0,
+            'gaji_bersih' => 5230000,
+            'created_at' => $z
+        ]);
+
+        PayrollHistory::updateOrCreate([
+            'id' => 6,
+            'employee_id' => 7,
+            'gaji_pokok' => 2000000,
+            'penambahan' => 750000,
+            'potongan' => 0,
+            'gaji_bersih' => 270000,
+            'created_at' => $z
+        ]);
+
+        PayrollHistory::updateOrCreate([
+            'id' => 7,
+            'employee_id' => 8,
+            'gaji_pokok' => 2500000,
+            'penambahan' => 0,
+            'potongan' => 0,
+            'gaji_bersih' => 2500000,
+            'created_at' => $z
+        ]);
+
+        PayrollHistory::updateOrCreate([
+            'id' => 8,
+            'employee_id' => 9,
+            'gaji_pokok' => 30000000,
+            'penambahan' => 0,
+            'potongan' => 0,
+            'gaji_bersih' => 30000000,
             'created_at' => $z
         ]);
     }
+    
 }

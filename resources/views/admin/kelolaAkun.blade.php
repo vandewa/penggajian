@@ -56,7 +56,7 @@
                     <a href="">
                         <tr>
                             <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($user->created_at))->isoFormat('D MMMM Y') }}</td>
-                            <td>{{ $user->employee->full_name }}</td>
+                            <td>{{ $user->employee->full_name ?? ''}}</td>
                             <td>{{ $user->username }}</td>
                             <td><a href="#" class="status" data-type="select" data-pk="{{ $user->id }}"
                                     data-value={{ $user->is_active ? 1 : 2 }} data-url="{{ url('api/admin/active') }}"

@@ -120,7 +120,7 @@
                                             style="cursor: pointer; border-bottom: 1px solid #e3e6f0">
                                             <td style="border-right:none !important;">{{ $c->subject }}</td>
                                             <td style="border-left:none !important; text-align: right;">
-                                                {{ Carbon\Carbon::parse($c->created_at)->toDateString() }}
+                                                {{ \Carbon\Carbon::createFromTimeStamp(strtotime($c->created_at))->isoFormat('D MMMM Y') }}
                                             </td>
                                         </tr>
                                         @endforeach

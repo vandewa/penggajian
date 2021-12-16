@@ -19,15 +19,39 @@ class PositionSeeder extends Seeder
 
         Position::updateOrCreate([
             'id' => 2,
-            'position' => 'Staff',
-            'salary' => 4000000,
-            'job_allowance' => 250000
+            'position' => 'Advisor',
+            'salary' => 15000000,
+            'job_allowance' => 0
         ]);
         Position::updateOrCreate([
             'id' => 3,
-            'position' => 'Manajer',
-            'salary' => 7500000,
-            'job_allowance' => 500000
+            'position' => 'Divisi Legal',
+            'salary' => 2000000,
+            'job_allowance' => 0
+        ]);
+        Position::updateOrCreate([
+            'id' => 4,
+            'position' => 'Sekretaris',
+            'salary' => 5000000,
+            'job_allowance' => 0
+        ]);
+        Position::updateOrCreate([
+            'id' => 5,
+            'position' => 'HRD',
+            'salary' => 4600000,
+            'job_allowance' => 0
+        ]);
+        Position::updateOrCreate([
+            'id' => 6,
+            'position' => 'OB',
+            'salary' => 2500000,
+            'job_allowance' => 0
+        ]);
+        Position::updateOrCreate([
+            'id' => 7,
+            'position' => 'Direktur',
+            'salary' => 30000000,
+            'job_allowance' => 0
         ]);
     }
 }

@@ -56,7 +56,7 @@
                                     style="display:none;">{{ Carbon\Carbon::parse($c->created_at)->getTimestamp() }}</span>{{ Carbon\Carbon::parse($c->created_at)->locale('id')->isoFormat('d MMMM YYYY') }}
                             </td>
                             <td
-                                class="font-weight-bold align-middle text-center @if(!empty($c->response)) @if($c->response->status == 1) text-success @else text-danger @endif @else text-dark @endif">
+                                class="font-weight-bold align-middle text-center @if(!empty($c->response)) @if($c->response->status == 1) text-success @else text-danger @endif @else text-warning @endif">
                                 @if(!empty($c->response)) @if($c->response->status == 1) Disetujui @else Ditolak
                                 @endif @else Perlu direspon @endif</td>
                         </tr>
@@ -98,11 +98,11 @@
 <script src="{{ URL::asset('js/demo/datatables-demo.js') }}"></script>
 
 <script>
-    // $(function(){
-    //         $(".alert").delay(3000).slideUp(300);
-    //         $(".clickable-row").click(function () {
-    //         window.location = $(this).data("href");
-    //     });
-    //     });
+    $(function(){
+            $(".alert").delay(3000).slideUp(300);
+            $(".clickable-row").click(function () {
+            window.location = $(this).data("href");
+        });
+        });
 </script>
 @endsection

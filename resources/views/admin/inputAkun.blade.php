@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Input Akun Baru')
+@section('title', 'Input Akun Baru Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->

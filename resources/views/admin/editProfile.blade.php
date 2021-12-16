@@ -40,6 +40,7 @@
                   <label for="exampleInputPassword2">New Password</label>
                   <input type="password" class="form-control @error('password') is-invalid @enderror"
                     id="exampleInputPassword2" name="password" required>
+                    <span class="form-text text-muted">* minimal 8 karakter</span>
                   @error('password')
                   <div class="invalid-feedback">
                     {{ $message }}

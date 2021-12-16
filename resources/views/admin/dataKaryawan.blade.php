@@ -63,7 +63,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @php($employees = \App\Employee::all())
                         @foreach ($employees as $employee)
                         <tr>
                             <td class="text-center"><img
