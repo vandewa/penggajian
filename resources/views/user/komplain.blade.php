@@ -159,7 +159,7 @@
 <!-- Page level custom scripts -->
 <script src="{{ URL::asset('js/demo/datatables-demo.js') }}"></script>
 
-<script>
+{{-- <script>
     $(function () {
         $(".alert-success").delay(3000).slideUp(300);
         $(".clickable-row").click(function () {
@@ -176,5 +176,5 @@
     $container.find('.file-thumbnail-footer').remove();
     return $container.html();
     });
-</script>
+</script> --}}
 @endsection

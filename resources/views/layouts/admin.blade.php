@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="shortcut icon" href="{{ url('img/logo.ico')}}">
     <title>@yield('title')</title>
 
     @yield('head-link')
@@ -24,7 +24,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <img src="{{ URL::asset('img/logoo.png') }}" alt="CakeCode" style="width: 100%;">
+                <img src="{{ URL::asset('img/logoo.png') }}"  style="width: 100%;">
             </a>
 
             <!-- Divider -->

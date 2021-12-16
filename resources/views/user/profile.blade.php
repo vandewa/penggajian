@@ -112,14 +112,6 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>NIP</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>{{ $employee->user->nip }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
                             <label>Nama Lengkap</label>
                         </div>
                         <div class="col-md-6">
@@ -128,10 +120,34 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Posisi</label>
+                            <label>Email (username)</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{ $employee->position->position }}</p>
+                            <p>{{ $employee->user->username }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Nomor KTP</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ $employee->nik }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Nomor NPWP</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ $employee->npwp }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Jabatan</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ $employee->position->position ?? '' }}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -148,6 +164,22 @@
                         </div>
                         <div class="col-md-6">
                             <p>{{ $employee->phone }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Pendidikan Terakhir</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ $employee->education->name ?? '' }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Tahun Masuk</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ $employee->come }}</p>
                         </div>
                     </div>
                     <div class="row">

@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Rekap Presensi'. auth()->user()->employee->full_name)
+@section('title', 'Rekap Presensi '. auth()->user()->employee->full_name)
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -23,7 +23,7 @@
         <div class="col-6">
             <!-- Page Heading -->
             <h1 class="h3 mb-2 text-gray-800">Presensi {{ auth()->user()->employee->full_name }}</h1>
-            <p class="mb-4">Seluruh data Presensi {{ auth()->user()->employee->full_name }} CakeCode</p>
+            <p class="mb-4">Seluruh data Presensi {{ auth()->user()->employee->full_name }} Hadiyani & Partners Law Firm</p>
         </div>
         {{-- <td><a href="#" class="status" data-type="select" data-pk="1" data-value="1" data-url="{{ url('api/admin/active') }}"
         data-title="Select status"></a></td> --}}

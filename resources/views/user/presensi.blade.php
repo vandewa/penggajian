@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Presensi Karyawan CakeCode')
+@section('title', 'Presensi Karyawan Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->

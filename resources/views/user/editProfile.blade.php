@@ -103,23 +103,67 @@
                 @csrf
                 @method('patch')
                 <div class="form-group row">
-                  <label for="username" class="col-4 col-form-label">Nip</label>
+                  <label for="username" class="col-4 col-form-label">Email (username)</label>
                   <div class="col-8">
-                    <input id="username" value="{{ $employee->user->nip }}" class="form-control here "
-                      required="required" type="text" readonly>
+                    <input id="username" name="nip" value="{{ $employee->user->username }}"
+                      class="form-control here @error('nip') is-invalid @enderror" required="required" type="text"
+                      readonly>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="name" class="col-4 col-form-label">Nama Lengkap</label>
                   <div class="col-8">
-                    <input id="name" value="{{ $employee->full_name }}" class="form-control here" type="text" readonly>
+                    <input id="name" name="nama" value="{{ $employee->full_name }}" required
+                      class="form-control here @error('nama') is-invalid @enderror" type="text">
+                    @error('nama')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="lastname" class="col-4 col-form-label">Posisi</label>
+                  <label for="name" class="col-4 col-form-label">Nomor KTP</label>
                   <div class="col-8">
-                    <input id="lastname" value="{{ $employee->position->position }}" class="form-control here"
-                      type="text" readonly>
+                    <input id="nik" name="nik" value="{{ $employee->nik }}" required
+                      class="form-control here @error('nik') is-invalid @enderror" type="text">
+                    @error('nik')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="name" class="col-4 col-form-label">Nomor NPWP</label>
+                  <div class="col-8">
+                    <input id="npwp" name="npwp" value="{{ $employee->npwp }}" required
+                      class="form-control here @error('npwp') is-invalid @enderror" type="text">
+                    @error('npwp')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="position" class="col-4 col-form-label">Jabatan</label>
+                  <div class="col-8">
+                    <select class="form-control @error('posisi') is-invalid @enderror" id="position" name="posisi">
+                      <option selected value="{{ $employee->position->id }}">{{ $employee->position->position }}
+                      </option>
+                      @php($positions = \App\Position::all())
+                      @foreach ($positions as $position)
+                      @if ($position->id != $employee->position->id)
+                      <option value="{{ $position->id }}">{{ $position->position }}</option>
+                      @endif
+                      @endforeach
+                    </select>
+                    @error('posisi')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
                   </div>
                 </div>
                 <div class="form-group row">
@@ -145,6 +189,69 @@
                     </div>
                     @enderror
                   </div>
+                </div> 
+                <div class="form-group row">
+                  <label for="pendidikan" class="col-4 col-form-label">Pendidikan Terakhir</label>
+                  <div class="col-8">
+                    <select class="form-control @error('pendidikan') is-invalid @enderror" id="pendidikan"
+                      name="education_id">
+                      <option value="" readonly>- Pilih -</option>
+                     <option selected value="{{ $employee->education->id ?? '' }}">{{ $employee->education->name ?? '' }}
+                      </option>
+                      @php($educations = \App\Education::all())
+                      @foreach ($educations as $education)
+                      @if ($education->id ?? '' != $employee->education->id ?? '')
+                      <option value="{{ $education->id ?? '' }}">{{ $education->name ?? '' }}</option>
+                      @endif
+                      @endforeach
+                    </select>
+                    @error('pendidikan')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="text" class="col-4 col-form-label">Tahun Masuk</label>
+                  <div class="col-8">
+                    <input id="text" name="come" value="{{ $employee->come }}" class="form-control here @error('come') is-invalid @enderror"
+                      required="required" type="text">
+                    @error('come')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="marital" class="col-4 col-form-label">Status Pernikahan</label>
+                  <div class="col-8">
+                    <select class="form-control @error('pernikahan') is-invalid @enderror" id="marital"
+                      name="pernikahan">
+                      <option selected value="{{ $employee->marital_status ? 1 : 0}}">
+                        {{ $employee->marital_status ? 'Kawin' : 'Belum Kawin' }}</option>
+                      <option value="{{ $employee->marital_status ? 0 : 1 }}">
+                        {{ $employee->marital_status ? 'Belum Kawin' : 'Kawin' }}</option>
+                    </select>
+                    @error('pernikahan')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="anak" class="col-4 col-form-label">Jumlah Anak</label>
+                  <div class="col-8">
+                    <input id="anak" name="anak" class="form-control here @error('anak') is-invalid @enderror"
+                      required="required" type="text" maxlength="12" value="{{ $employee->number_of_children }}">
+                    @error('anak')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
                 </div>
                 <div class="form-group row">
                   <label for="inputGroupFile01" class="col-4 col-form-label">Foto</label>
@@ -164,6 +271,7 @@
                     </div>
                   </div>
                 </div>
+                
                 <div class="form-group row justify-content-end mr-1">
                   <button name="submit" type="submit" class="btn btn-primary">Update</button>
                 </div>

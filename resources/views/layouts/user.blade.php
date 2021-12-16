@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="shortcut icon" href="{{ url('img/logo.ico')}}">
     <title>@yield('title')</title>
 
     @yield('head-link')
@@ -25,7 +25,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <img src="{{ URL::asset('img/logo.png') }}" alt="CakeCode" width="100">
+                <img src="{{ URL::asset('img/logoo.png') }}"  style="width: 100%;">
             </a>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -182,7 +182,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2019</span>
+                        <span>Copyright &copy; {{ Carbon\Carbon::now()->isoFormat('Y') }}. Hadiyani & Partners Law Firm</span>
                     </div>
                 </div>
             </footer>

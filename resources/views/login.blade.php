@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <link rel="shortcut icon" href="{{ url('img/logo.ico')}}">
   <title>Login E-Payroll Hadiyani & Partner Law Firm</title>
 
   <!-- Custom fonts for this template-->
@@ -80,7 +80,7 @@
                 <hr>
                
                 <div class="valid-feedback text-center d-block text-info">
-                <a data-toggle="modal" data-target=".bd-example-modal-sm">Lupa Password ?</a>
+                <a data-toggle="modal" data-target=".bd-example-modal-sm" href="#">Lupa Password ?</a>
                 </div>
 
                  <!-- Small modal -->
@@ -88,7 +88,7 @@
                   <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                       <hr>
-                      <center>Silahkan menghubungi HRD</center>
+                      <center>Silahkan menghubungi HRD ^_^</center>
                       <hr>
                     </div>
                   </div>
