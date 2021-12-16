@@ -120,10 +120,11 @@ class EmployeeController extends Controller
                 }
             }
         }
+        
 
+        $education = \App\Education::all();
 
-
-        return view('user/profile', compact('employee'));
+        return view('user/profile', compact('employee', 'education'));
     }
 
     /**

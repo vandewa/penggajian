@@ -164,7 +164,7 @@
                                     class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->employee->full_name }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ URL::asset('img/employeePic/'.auth()->user()->employee->profile_pic) }}"
-                                    onerror="this.onerror=null;this.src='{{ URL::asset('img/employeePic/default.png') }}';">
+                                    onerror="this.onerror=null;this.src='{{ URL::asset('img/default.png') }}';">
                             </div>
                         </li>
 

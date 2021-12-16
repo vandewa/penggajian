@@ -69,7 +69,7 @@
                             <td class="text-center"><img
                                     src="{{ URL::asset('img/employeePic/'.$employee->profile_pic) }}"
                                     alt="{{ $employee->full_name }}" width="100" class="img-thumbnail"
-                                    onerror="this.onerror=null;this.src='{{ URL::asset('img/employeePic/default.png') }}';">
+                                    onerror="this.onerror=null;this.src='{{ URL::asset('img/default.png') }}';">
                             </td>
                             <td>{{ $employee->full_name }}</td>
                             <a href="#">

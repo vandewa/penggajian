@@ -78,7 +78,7 @@
         <div class="col-md-4">
             <div class="profile-img">
                 <img src="{{ URL::asset('img/employeePic/'.$employee->profile_pic) }}" alt=""
-                    onerror="this.onerror=null;this.src='{{ URL::asset('img/employeePic/default.png') }}';" />
+                    onerror="this.onerror=null;this.src='{{ URL::asset('img/default.png') }}';" />
             </div>
         </div>
         <div class="col-md-6">
@@ -336,8 +336,17 @@
                     <div class="form-group row">
                         <label for="text" class="col-4 col-form-label">Pendidikan Terakhir</label>
                         <div class="col-8">
-                            <input id="text" name="telp" class="form-control here @error('telp') is-invalid @enderror"
-                                required="required" type="text" maxlength="12" value="{{ old('telp') }}">
+                            <select name="education_id" class="form-control select @error('posisi') is-invalid @enderror"
+							data-fouc>
+							<option value="" >- Pilih -</option>
+							@foreach ($education as $pendidikan)
+							@if (old('education_id') == $pendidikan->id)
+							<option value="{{ $pendidikan->id }}" selected>{{ $pendidikan->name }}</option>
+							@else
+							<option value="{{ $pendidikan->id }}">{{ $pendidikan->name }}</option>
+							@endif
+							@endforeach
+						    </select>
                             @error('telp')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -389,8 +398,10 @@
                     <div class="form-group row">
                         <label for="inputGroupFile01" class="col-4 col-form-label">Foto</label>
                         <div class="col-8 d-flex">
-                            <img id="blah" src="{{ asset('img/employeePic/'.$employee->profile_pic) }}"
-                                class="img-thumbnail mr-2" alt="your image" height="60" width="60" />
+                            <img
+                                    src="{{ URL::asset('img/employeePic/'.$employee->profile_pic) }}"
+                                    alt="{{ $employee->full_name }}" width="100" class="img-thumbnail"
+                                    onerror="this.onerror=null;this.src='{{ URL::asset('img/default.png') }}';">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('image') is-invalid @enderror"
                                     id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="image"

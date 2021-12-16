@@ -81,7 +81,7 @@
                 <img
                 src="{{ URL::asset('img/employeePic/'.$employee->profile_pic) }}"
                 alt="{{ $employee->full_name }}" width="100" class="img-thumbnail"
-                onerror="this.onerror=null;this.src='{{ URL::asset('img/employeePic/default.png') }}';">
+                onerror="this.onerror=null;this.src='{{ URL::asset('img/default.png') }}';">
             </div>
         </div>
         <div class="col-md-6">

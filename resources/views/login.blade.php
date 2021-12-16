@@ -23,7 +23,7 @@
 </head>
 
 <body
-  style="background-image: url({{ URL::asset('img/auth_background.jpg') }}); background-repeat : no-repeat; background-position: center bottom; background-size: cover;">
+  style="background-image: url({{ URL::asset('img/background.gif') }}); background-repeat : no-repeat; background-position: center bottom; background-size: cover;">
 
   <div class="container">
 
@@ -36,7 +36,8 @@
           <div class="card-body p-0">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                <center><img src="{{ asset('img/logooo.png') }}"></center>
+                <h1 class="h4 text-gray-900 mb-4 mt-2">Welcome Back!</h1>
                 @error('blocked')
                 <div class="alert alert-danger alert-block">
                   <button type="button" class="close" data-dismiss="alert">×</button>

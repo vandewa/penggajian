@@ -249,7 +249,7 @@
                   <div class="col-8 d-flex">
                     <img id="blah" src="{{ asset('img/employeePic/'.$employee->profile_pic) }}"
                       class="img-thumbnail mr-2" alt="your image" height="60" width="60"
-                      onerror="this.onerror=null;this.src='{{ URL::asset('img/employeePic/default.png') }}';" />
+                      onerror="this.onerror=null;this.src='{{ URL::asset('img/default.png') }}';" />
                     <div class="custom-file">
                       <input type="file" class="custom-file-input @error('image') is-invalid @enderror"
                         id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="image">
