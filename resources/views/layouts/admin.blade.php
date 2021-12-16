@@ -170,7 +170,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Hadiyani & Partners Law Firm</span>
+                        <span>Copyright &copy; {{ Carbon\Carbon::now()->isoFormat('Y') }}. Hadiyani & Partners Law Firm</span>
                     </div>
                 </div>
             </footer>

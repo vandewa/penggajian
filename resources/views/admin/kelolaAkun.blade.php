@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Data Akun CakeCode')
+@section('title', 'Data Akun Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -23,8 +23,8 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Akun karyawan CakeCode</h1>
-    <p class="mb-4">Seluruh akun karyawan yang ada di Database Aplikasi Penggajian CakeCode</p>
+    <h1 class="h3 mb-2 text-gray-800">Akun karyawan Hadiyani & Partners Law Firm</h1>
+    <p class="mb-4">Seluruh akun karyawan yang ada di Database Aplikasi E-Payroll Hadiyani & Partners Law Firm</p>
     @if (session()->has('deleted'))
     <div class="alert alert-info alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -40,7 +40,8 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
-            <table class="table table-bordered" id="dataPenggajian" width="100%" cellspacing="0">
+            <div class="table-responsive">
+            <table class="table table-bordered" id="dataPenggajian" cellspacing="0">
                 <thead>
                     <tr style="text-align: center;">
                         <th>Tanggal dibuat</th>
@@ -118,6 +119,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 

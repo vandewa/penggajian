@@ -12,8 +12,8 @@
 
 <body>
     <div style="margin: 50px 10px 50px 10px">
-        <h1 style="text-align: center; margin-bottom: 5px;">CakeCode</h1>
-        <h3 style="text-align: center; margin-top: 5px;">Learn Code With Some Cake</h3>
+        <h1 style="text-align: center; margin-bottom: 5px;">Hadiyani & Partners Law Firm</h1>
+        <h3 style="text-align: center; margin-top: 5px;">Advocate & Legal Consultant</h3>
         <hr>
         <h4 style="text-align: center; margin-top: 5px; margin-bottom: 5px; text-decoration: underline;">GAJI KARYAWAN
         </h4>
@@ -25,11 +25,6 @@
             {{ $year }}</p>
         <table style="margin-top: 20px;">
             <tr>
-                <td width="100">NIP</td>
-                <td>:</td>
-                <td style="font-weight: bold">{{ $employee->user->nip }}</td>
-            </tr>
-            <tr>
                 <td>Nama Lengkap</td>
                 <td>:</td>
                 <td style="font-weight: bold">{{ $employee->full_name }}</td>
@@ -38,6 +33,16 @@
                 <td>Jabatan</td>
                 <td>:</td>
                 <td style="font-weight: bold">{{ $employee->position->position }}</td>
+            </tr>
+            <tr>
+                <td width="100">No Hp.</td>
+                <td>:</td>
+                <td style="font-weight: bold">{{ $employee->phone }}</td>
+            </tr>
+            <tr>
+                <td width="100">Alamat</td>
+                <td>:</td>
+                <td style="font-weight: bold">{{ $employee->address }}</td>
             </tr>
         </table>
         <table style="margin-bottom: 0;">
@@ -141,6 +146,8 @@
             Rp.
             {{ number_format($employee->position->salary + $employee->position->job_allowance + $totalA - $totalB,0,'','.') }}
         </h3>
+        <h4 style="text-align: center;">{{ Terbilang::make($employee->position->salary + $employee->position->job_allowance + $totalA - $totalB, ' rupiah', 'Terbilang: ') }}
+        </h4>
     </div>
     {{-- <div class="row">
         <div class="col-6">

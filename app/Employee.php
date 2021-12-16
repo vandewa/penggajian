@@ -31,4 +31,8 @@ class Employee extends Model
     {
         return $this->hasMany('App\PayrollHistory');
     }
+    public function education()
+    {
+        return $this->belongsTo('App\Education');
+    }
 }

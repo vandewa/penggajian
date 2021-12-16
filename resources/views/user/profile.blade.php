@@ -252,9 +252,9 @@
                     @method('patch')
                     @csrf
                     <div class="form-group row">
-                        <label for="username" class="col-4 col-form-label">Nip</label>
+                        <label for="username" class="col-4 col-form-label">Email(username)</label>
                         <div class="col-8">
-                            <input id="username" placeholder="{{ $employee->user->nip }}"
+                            <input id="username" placeholder="{{ $employee->user->username }}"
                                 class="form-control here  @error('nip') is-invalid @enderror" required="required"
                                 type="text" readonly>
                         </div>
@@ -286,6 +286,30 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="text" class="col-4 col-form-label">Nomor NIK</label>
+                        <div class="col-8">
+                            <input id="text" name="nik" class="form-control here @error('nik') is-invalid @enderror"
+                                required="required" type="text" value="{{ old('nik') }}">
+                            @error('nik')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="text" class="col-4 col-form-label">Nomor NPWP</label>
+                        <div class="col-8">
+                            <input id="text" name="npwp" class="form-control here @error('npwp') is-invalid @enderror"
+                                required="required" type="text" value="{{ old('npwp') }}">
+                            @error('npwp')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="validationTextarea" class="col-4 col-form-label">Alamat</label>
                         <div class="col-8">
                             <textarea class="form-control here @error('alamat') is-invalid @enderror"
@@ -299,6 +323,30 @@
                     </div>
                     <div class="form-group row">
                         <label for="text" class="col-4 col-form-label">No. Telp</label>
+                        <div class="col-8">
+                            <input id="text" name="telp" class="form-control here @error('telp') is-invalid @enderror"
+                                required="required" type="text" maxlength="12" value="{{ old('telp') }}">
+                            @error('telp')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="text" class="col-4 col-form-label">Pendidikan Terakhir</label>
+                        <div class="col-8">
+                            <input id="text" name="telp" class="form-control here @error('telp') is-invalid @enderror"
+                                required="required" type="text" maxlength="12" value="{{ old('telp') }}">
+                            @error('telp')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="text" class="col-4 col-form-label">Tahun Masuk</label>
                         <div class="col-8">
                             <input id="text" name="telp" class="form-control here @error('telp') is-invalid @enderror"
                                 required="required" type="text" maxlength="12" value="{{ old('telp') }}">

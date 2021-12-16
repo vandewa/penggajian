@@ -19,7 +19,7 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Input Akun Baru</h1>
+    <h1 class="h3 mb-0 text-gray-800">Edit Presensi</h1>
   </div>
 
   <!-- Content Row -->
@@ -36,11 +36,6 @@
               <label for="tanggal">Tanggal</label>
               <input type="text" maxlength="8" class="form-control" id="tanggal" disabled
                 value="{{ Carbon\Carbon::parse($data->date)->locale('id')->dayName }}, {{ Carbon\Carbon::parse($data->date)->locale('id')->day }} {{ Carbon\Carbon::parse($data->date)->locale('id')->monthName }} {{ Carbon\Carbon::parse($data->date)->year }}">
-            </div>
-            <div class="form-group">
-              <label for="nip">NIP</label>
-              <input type="text" maxlength="8" class="form-control" id="nip" disabled
-                value={{ $data->employee->user->nip }}>
             </div>
             <div class="form-group">
               <label for="fullname">Nama Lengkap</label>

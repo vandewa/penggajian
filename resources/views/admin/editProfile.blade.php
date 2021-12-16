@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-<div class="container ml-md-5">
+<div class="container">
   <div class="row">
     <div class="col-md-4">
       <div class="card">
@@ -88,7 +88,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 overflow-auto">
+            <div class="col-md-12">
               <form action="{{ url('admin/data-karyawan/'.$employee->id) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
@@ -114,9 +114,21 @@
                   </div>
                 </div>
                 <div class="form-group row">
+                  <label for="name" class="col-4 col-form-label">Nomor KTP</label>
+                  <div class="col-8">
+                    <input id="nik" name="nik" value="{{ $employee->nik }}" required
+                      class="form-control here @error('nik') is-invalid @enderror" type="text">
+                    @error('nik')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="form-group row">
                   <label for="name" class="col-4 col-form-label">Nomor NPWP</label>
                   <div class="col-8">
-                    <input id="npwp" name="npwp" value="" required
+                    <input id="npwp" name="npwp" value="{{ $employee->npwp }}" required
                       class="form-control here @error('npwp') is-invalid @enderror" type="text">
                     @error('npwp')
                     <div class="invalid-feedback">
@@ -168,16 +180,21 @@
                     </div>
                     @enderror
                   </div>
-                </div>
+                </div> 
                 <div class="form-group row">
                   <label for="pendidikan" class="col-4 col-form-label">Pendidikan Terakhir</label>
                   <div class="col-8">
                     <select class="form-control @error('pendidikan') is-invalid @enderror" id="pendidikan"
-                      name="education">
-                      <option selected value="{{ $employee->marital_status ? 1 : 0}}">
-                        {{ $employee->marital_status ? 'Kawin' : 'Belum Kawin' }}</option>
-                      <option value="{{ $employee->marital_status ? 0 : 1 }}">
-                        {{ $employee->marital_status ? 'Belum Kawin' : 'Kawin' }}</option>
+                      name="education_id">
+                      <option value="" readonly>- Pilih -</option>
+                     <option selected value="{{ $employee->education->id ?? '' }}">{{ $employee->education->name ?? '' }}
+                      </option>
+                      @php($educations = \App\Education::all())
+                      @foreach ($educations as $education)
+                      @if ($education->id ?? '' != $employee->education->id ?? '')
+                      <option value="{{ $education->id ?? '' }}">{{ $education->name ?? '' }}</option>
+                      @endif
+                      @endforeach
                     </select>
                     @error('pendidikan')
                     <div class="invalid-feedback">
@@ -189,8 +206,8 @@
                 <div class="form-group row">
                   <label for="text" class="col-4 col-form-label">Tahun Masuk</label>
                   <div class="col-8">
-                    <input id="text" name="come" class="form-control here @error('come') is-invalid @enderror"
-                      required="required" type="text" value="">
+                    <input id="text" name="come" value="{{ $employee->come }}" class="form-control here @error('come') is-invalid @enderror"
+                      required="required" type="text">
                     @error('come')
                     <div class="invalid-feedback">
                       {{ $message }}

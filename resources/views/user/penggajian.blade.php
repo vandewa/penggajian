@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Penggajian Karyawan CakeCode')
+@section('title', 'Penggajian Karyawan Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -23,8 +23,8 @@
     <div class="row align-middle justify-content-between mx-3">
         <div class="col-6">
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Data Penggajian Karyawan CakeCode</h1>
-            <p class="mb-4">Seluruh data Penggajian karyawan yang ada di Database Aplikasi Penggajian CakeCode</p>
+            <h1 class="h3 mb-2 text-gray-800">Data Penggajian Karyawan Hadiyani & Partners Law Firm</h1>
+            <p class="mb-4">Seluruh data Penggajian karyawan yang ada di Database Aplikasi E-Payroll Hadiyani & Partners Law Firm</p>
         </div>
         {{-- <td><a href="#" class="status" data-type="select" data-pk="1" data-value="1" data-url="{{ url('api/admin/active') }}"
         data-title="Select status"></a></td> --}}

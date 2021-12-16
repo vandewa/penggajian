@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Data Karyawan CakeCode')
+@section('title', 'Data Karyawan Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -30,8 +30,8 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Data Karyawan CakeCode</h1>
-    <p class="mb-4">Seluruh data karyawan yang ada di Database Aplikasi Penggajian CakeCode</p>
+    <h1 class="h3 mb-2 text-gray-800">Data Karyawan Hadiyani & Partners Law Firm</h1>
+    <p class="mb-4">Seluruh data karyawan yang ada di Database Aplikasi E-Payroll Hadiyani & Partners Law Firm</p>
     @if (session()->has('deleted'))
     <div class="alert alert-info alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -52,14 +52,14 @@
                     <thead>
                         <tr>
                             <th>Foto</th>
-                            <th>Nip</th>
                             <th>Nama Lengkap</th>
+                            <th>Email(username)</th>
                             <th>Jabatan</th>
                             <th>Alamat</th>
                             <th style="display: none">Status Pernikahan</th>
                             <th style="display: none">Jumlah Anak</th>
                             <th>No. Telp</th>
-                            <th></th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,10 +71,10 @@
                                     alt="{{ $employee->full_name }}" width="100" class="img-thumbnail"
                                     onerror="this.onerror=null;this.src='{{ URL::asset('img/employeePic/default.png') }}';">
                             </td>
-                            <a href="#">
-                                <td>{{ $employee->user->nip }}</td>
-                            </a>
                             <td>{{ $employee->full_name }}</td>
+                            <a href="#">
+                                <td>{{ $employee->user->username }}</td>
+                            </a>
                             <td>{{ $employee->position->position }}</td>
                             <td>{{ $employee->address }}</td>
                             <td style="display: none">{{ $employee->marital_status ? 'Kawin' : 'Belum Kawin' }}</td>
