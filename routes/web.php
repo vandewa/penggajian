@@ -22,20 +22,26 @@ Route::get('/logout', 'AuthController@logout');
 
 // Admin Routes
 Route::middleware(['auth', 'admin'])->group(function () {
+    // Dashboard
     Route::get('admin/dashboard', 'EmployeeController@dashboard');
-
+    // Akun
     Route::get('admin/akun/kelola-akun', 'UserController@index');
     Route::get('admin/akun/input-akun', 'UserController@create');
     Route::get('admin/akun/{employee}', 'EmployeeController@show');
     Route::post('admin/akun/input-akun', 'UserController@store');
     Route::patch('admin/akun/{id}', 'EmployeeController@updatePasswordFromAdmin');
     Route::delete('admin/akun/{id}', 'UserController@destroy');
-
+    // Keuangan
+    Route::get('admin/keuangan', 'FinanceController@index');
+    Route::get('admin/keuangan/pemasukan', 'FinanceController@create');
+    Route::post('admin/keuangan/pemasukan', 'FinanceController@store');
+    Route::delete('admin/keuangan/{finance}', 'FinanceController@destroy');
+    // Data Karyawan
     Route::get('admin/data-karyawan', 'EmployeeController@index');
     Route::get('admin/data-karyawan/{employee}', 'EmployeeController@show');
     Route::get('admin/data-karyawan/{employee}/edit', 'EmployeeController@editAdmin');
     Route::patch('admin/data-karyawan/{id}', 'EmployeeController@updateProfileFromAdmin');
-
+    // Jabatan
     Route::get('admin/jabatan', 'PositionController@index');
     Route::get('admin/jabatan/input-jabatan', 'PositionController@create');
     Route::get('admin/jabatan/{position}', 'PositionController@show');
@@ -43,27 +49,27 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('admin/jabatan/{employee}', 'EmployeeController@updateJabatan');
     Route::post('admin/jabatan/input-jabatan', 'PositionController@store');
     Route::delete('admin/jabatan/{position}', 'PositionController@destroy');
-
+    // Presensi
     Route::get('admin/presensi', 'PresenceController@index');
     Route::post('admin/presensi', 'PresenceController@indexSearch');
     Route::post('admin/presensi/edit', 'PresenceController@edit');
     Route::patch('admin/presensi/edit/{presence}', 'PresenceController@update');
-
+    // Komplain
     Route::get('admin/komplain', 'ComplaintController@indexAdmin');
     Route::get('admin/komplain/{complaint}/respon', 'ResponseController@show');
     Route::post('admin/respon/{complaint}', 'ResponseController@store');
-
+    // Penambahan & potongan
     Route::get('admin/penambahan-potongan', 'AllowanceController@index');
     Route::post('admin/penambahan', 'AllowanceController@storePenambahan');
     Route::delete('admin/penambahan-potongan/{allowance}', 'AllowanceController@destroy');
     Route::post('admin/potongan', 'AllowanceController@storePotongan');
     Route::patch('admin/potongan/{allowance}', 'AllowanceController@patchPotongan');
     Route::patch('admin/penambahan/{allowance}', 'AllowanceController@patchPenambahan');
-
+    // Penggajian
     Route::get('admin/penggajian', 'PayrollHistoryController@index');
     Route::post('admin/penggajian', 'PayrollHistoryController@indexPost');
     Route::post('admin/post/penggajian/{employee}', 'PayrollHistoryController@store');
-
+    // Cetak Penggajian
     Route::post('printPdf/{employee}/{month}/{year}/', 'PayrollHistoryController@printPDF');
 });
 

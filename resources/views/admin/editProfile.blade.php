@@ -117,7 +117,7 @@
                 <div class="form-group row">
                   <label for="name" class="col-4 col-form-label">Nomor KTP</label>
                   <div class="col-8">
-                    <input id="nik" name="nik" value="{{ $employee->nik }}" required
+                    <input id="nik" name="nik" value="{{ $employee->nik }}" 
                       class="form-control here @error('nik') is-invalid @enderror" type="text">
                     @error('nik')
                     <div class="invalid-feedback">
@@ -129,7 +129,7 @@
                 <div class="form-group row">
                   <label for="name" class="col-4 col-form-label">Nomor NPWP</label>
                   <div class="col-8">
-                    <input id="npwp" name="npwp" value="{{ $employee->npwp }}" required
+                    <input id="npwp" name="npwp" value="{{ $employee->npwp }}" 
                       class="form-control here @error('npwp') is-invalid @enderror" type="text">
                     @error('npwp')
                     <div class="invalid-feedback">
@@ -162,7 +162,7 @@
                   <label for="validationTextarea" class="col-4 col-form-label">Alamat</label>
                   <div class="col-8">
                     <textarea class="form-control here @error('alamat') is-invalid @enderror" id="validationTextarea"
-                      name="alamat" required>{{ $employee->address }}</textarea>
+                      name="alamat">{{ $employee->address }}</textarea>
                     @error('alamat')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -208,7 +208,7 @@
                   <label for="text" class="col-4 col-form-label">Tahun Masuk</label>
                   <div class="col-8">
                     <input id="text" name="come" value="{{ $employee->come }}" class="form-control here @error('come') is-invalid @enderror"
-                      required="required" type="text">
+                       type="text">
                     @error('come')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -237,7 +237,7 @@
                   <label for="anak" class="col-4 col-form-label">Jumlah Anak</label>
                   <div class="col-8">
                     <input id="anak" name="anak" class="form-control here @error('anak') is-invalid @enderror"
-                      required="required" type="text" maxlength="12" value="{{ $employee->number_of_children }}">
+                      type="text" maxlength="12" value="{{ $employee->number_of_children }}">
                     @error('anak')
                     <div class="invalid-feedback">
                       {{ $message }}

@@ -58,6 +58,27 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {{ (request()->is('admin/keuangan*')) ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#keuangan"
+                    aria-expanded="true" aria-controls="keuangan">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Keuangan (Kas)</span>
+                </a>
+                <div id="keuangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ url('admin/keuangan') }}">Data Keuangan (Kas)</a>
+                        <a class="collapse-item" href="{{ url('admin/keuangan/pemasukan') }}">Pemasukan</a>
+                        <a class="collapse-item" href="{{ url('admin/keuangan/pengeluaran') }}">Pengeluaran</a>
+                    </div>
+                </div>
+            </li>
+
+            
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item {{ (request()->is('admin/data-karyawan*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('admin/data-karyawan') }}">

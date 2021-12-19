@@ -162,8 +162,7 @@ class EmployeeController extends Controller
         $id = auth()->user()->employee->id;
 
         $request->validate([
-            'alamat' => 'required',
-            'telp' => 'required|numeric',
+            'telp' => 'numeric',
         ]);
 
         $employee = \App\Employee::find($id);
