@@ -34,9 +34,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // Keuangan
     Route::get('admin/keuangan', 'FinanceController@index');
     Route::get('admin/keuangan/pemasukan', 'FinanceController@create');
+    Route::get('admin/keuangan/pengeluaran', 'FinanceController@createPengeluaran');
     Route::get('admin/keuangan/{finance}', 'FinanceController@show');
     Route::patch('admin/keuangan/{finance}/edit', 'FinanceController@update');
     Route::post('admin/keuangan/pemasukan', 'FinanceController@store');
+    Route::post('admin/keuangan/pengeluaran', 'FinanceController@storePengeluaran');
     Route::delete('admin/keuangan/{finance}', 'FinanceController@destroy');
     // Data Karyawan
     Route::get('admin/data-karyawan', 'EmployeeController@index');

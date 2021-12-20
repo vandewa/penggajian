@@ -48,7 +48,7 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataKaryawan" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataKeuangan" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Tanggal</th>
@@ -56,7 +56,7 @@
                             <th>Nominal</th>
                             <th>Status</th>
                             <th>Saldo</th>
-                            <th>Aksi</th>
+                            {{-- <th>Aksi</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -73,20 +73,10 @@
                                 @if($keuangan->status == 0) Pemasukan @else Pengeluaran
                                 @endif</td>
                             <td>Rp. {{ number_format($saldo += $keuangan->jumlah,0,'','.') }}</td>
-                            <td class="text-center">
-                                <a class="btn btn-info btn-sm" style="width: 65px;"
-                                    href="{{ url('admin/keuangan/'.$keuangan->id) }}" role="button">Lihat</a>
-                                <a class="btn btn-warning btn-sm my-1" style="width: 65px;"
-                                    href="{{ url('admin/keuangan/'.$keuangan->id.'/edit') }}"
-                                    role="button">Edit</a>
-                                <button type="button" class="btn btn-danger btn-sm d-inline" style="width: 65px;"
-                                    data-toggle="modal"
-                                    data-target="#exampleModalCenter{{ $keuangan->id }}">Hapus</button>
-                            </td>
                         </tr>
 
                         {{-- Delete Modal --}}
-                        <div class="modal fade" id="exampleModalCenter{{ $keuangan->id }}" tabindex="-1"
+                        {{-- <div class="modal fade" id="exampleModalCenter{{ $keuangan->id }}" tabindex="-1"
                             role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -113,7 +103,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         @endforeach
                     </tbody>
                 </table>

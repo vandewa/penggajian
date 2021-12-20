@@ -511,6 +511,49 @@ $(document).ready(function () {
             [2, 'asc']
         ],
     });
+    $('#dataKeuangan').DataTable({
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'copy',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'csv',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'excel',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'pdf',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'print',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }],
+        "pageLength": 50,
+        "aaSorting": [
+            [2, 'asc']
+        ],
+    });
 
     $('#tablePenambahan').DataTable({
         "bPaginate": false,
