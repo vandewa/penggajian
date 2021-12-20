@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-<div class="container ml-5">
+<div class="container">
   <div class="row">
     <div class="col-md-4">
       <div class="card">
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 overflow-auto">
+            <div class="col-md-12">
               <form action="{{ url('profile/update-password') }}" method="POST">
                 @csrf
                 @method('patch')
@@ -50,6 +50,7 @@
                   <label for="exampleInputPassword2">New Password</label>
                   <input type="password" class="form-control @error('password') is-invalid @enderror"
                     id="exampleInputPassword2" name="password" required>
+                    <span class="form-text text-muted">* minimal 8 karakter</span>
                   @error('password')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -98,7 +99,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 overflow-auto">
+            <div class="col-md-12">
               <form action="{{ url('profile/update-profile') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('patch')

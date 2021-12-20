@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Presensi Karyawan Hadiyani & Partners Law Firm')
+@section('title', 'Presensi '.auth()->user()->employee->full_name)
 
 @section('head-link')
 <!-- Custom fonts for this template-->

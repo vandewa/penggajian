@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Penggajian Karyawan CakeCode')
+@section('title', 'Penggajian Karyawan Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->

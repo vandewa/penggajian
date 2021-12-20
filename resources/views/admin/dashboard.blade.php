@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard Penggajian Hadiyani & Partners Law Firm')
+@section('title', 'Dashboard E-Payroll Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->

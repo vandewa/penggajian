@@ -176,7 +176,7 @@
 <script src="{{ URL::asset('js/fileinput.js') }}"></script>
 <script src="{{ URL::asset('js/fa/theme.js') }}"></script>
 
-<script>
+{{-- <script>
     $(function(){
             $(".alert").delay(3000).slideUp(300);
             $(".clickable-row").click(function () {
@@ -193,5 +193,5 @@
     $container.find('.file-thumbnail-footer').remove();
     return $container.html();
     });
-</script>
+</script> --}}
 @endsection

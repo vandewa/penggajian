@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Data Karyawan Hadiyani & Partners Law Firm')
+@section('title', 'Data Keuangan Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -30,18 +30,18 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Data Karyawan Hadiyani & Partners Law Firm</h1>
-    <p class="mb-4">Seluruh data karyawan yang ada di Database Aplikasi E-Payroll Hadiyani & Partners Law Firm</p>
+    <h1 class="h3 mb-2 text-gray-800">Data Keuangan Hadiyani & Partners Law Firm</h1>
+    <p class="mb-4">Seluruh data keuangan yang ada di Database Aplikasi E-Payroll Hadiyani & Partners Law Firm</p>
     @if (session()->has('deleted'))
     <div class="alert alert-info alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
         {{ session()->get('deleted') }}
     </div>
     @endif
-    @if (session()->has('akun_store'))
+    @if (session()->has('finance_store'))
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        {{ session()->get('akun_store') }}
+        {{ session()->get('finance_store') }}
     </div>
     @endif
     <!-- DataTales Example -->
@@ -51,48 +51,42 @@
                 <table class="table table-bordered" id="dataKaryawan" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Foto</th>
-                            <th>Nama Lengkap</th>
-                            <th>Email(username)</th>
-                            <th>Jabatan</th>
-                            <th>Alamat</th>
-                            <th style="display: none">Status Pernikahan</th>
-                            <th style="display: none">Jumlah Anak</th>
-                            <th>No. Telp</th>
+                            <th>Tanggal</th>
+                            <th>Keterangan</th>
+                            <th>Nominal</th>
+                            <th>Status</th>
+                            <th>Saldo</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($employees as $employee)
+                        @php
+                            $saldo = 0;
+                        @endphp
+                        @foreach ($finance as $keuangan)
                         <tr>
-                            <td class="text-center"><img
-                                    src="{{ URL::asset('img/employeePic/'.$employee->profile_pic) }}"
-                                    alt="{{ $employee->full_name }}" width="100" class="img-thumbnail"
-                                    onerror="this.onerror=null;this.src='{{ URL::asset('img/default.png') }}';">
-                            </td>
-                            <td>{{ $employee->full_name }}</td>
-                            <a href="#">
-                                <td>{{ $employee->user->username }}</td>
-                            </a>
-                            <td>{{ $employee->position->position }}</td>
-                            <td>{{ $employee->address }}</td>
-                            <td style="display: none">{{ $employee->marital_status ? 'Kawin' : 'Belum Kawin' }}</td>
-                            <td style="display: none">{{ $employee->number_of_children }}</td>
-                            <td>{{ $employee->phone }}</td>
+                            <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($keuangan->created_at))->isoFormat('D MMMM Y') }}</td>
+                            <td>{{ $keuangan->keterangan }}</td>
+                            <td>Rp. {{ number_format($keuangan->jumlah,0,'','.') }}</td>
+                            <td
+                                class="font-weight-bold align-middle text-center @if($keuangan->status == 0) text-success @else text-danger  @endif">
+                                @if($keuangan->status == 0) Pemasukan @else Pengeluaran
+                                @endif</td>
+                            <td>Rp. {{ number_format($saldo += $keuangan->jumlah,0,'','.') }}</td>
                             <td class="text-center">
                                 <a class="btn btn-info btn-sm" style="width: 65px;"
-                                    href="{{ url('admin/data-karyawan/'.$employee->id) }}" role="button">Lihat</a>
+                                    href="{{ url('admin/keuangan/'.$keuangan->id) }}" role="button">Lihat</a>
                                 <a class="btn btn-warning btn-sm my-1" style="width: 65px;"
-                                    href="{{ url('admin/data-karyawan/'.$employee->id.'/edit') }}"
+                                    href="{{ url('admin/keuangan/'.$keuangan->id.'/edit') }}"
                                     role="button">Edit</a>
                                 <button type="button" class="btn btn-danger btn-sm d-inline" style="width: 65px;"
                                     data-toggle="modal"
-                                    data-target="#exampleModalCenter{{ $employee->user->id }}">Hapus</button>
+                                    data-target="#exampleModalCenter{{ $keuangan->id }}">Hapus</button>
                             </td>
                         </tr>
 
                         {{-- Delete Modal --}}
-                        <div class="modal fade" id="exampleModalCenter{{ $employee->user->id }}" tabindex="-1"
+                        <div class="modal fade" id="exampleModalCenter{{ $keuangan->id }}" tabindex="-1"
                             role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -109,7 +103,7 @@
                                     <div class="modal-footer p-0 px-3">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Cancel</button>
-                                        <form method="POST" action="{{ url('/admin/akun/'.$employee->user->id) }}">
+                                        <form method="POST" action="{{ url('/admin/keuangan/'.$keuangan->id) }}">
                                             @csrf
                                             @method('delete')
                                             <div class="form-group">

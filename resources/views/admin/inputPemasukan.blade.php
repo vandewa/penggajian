@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Input Akun Baru Hadiyani & Partners Law Firm')
+@section('title', 'Pemasukan Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -19,7 +19,7 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Input Akun Baru</h1>
+    <h1 class="h3 mb-0 text-gray-800">Pemasukan</h1>
   </div>
 
   <!-- Content Row -->
@@ -27,46 +27,30 @@
     <div class="col-xl-6 col-md-6 mb-6">
       <div class="card shadow h-100 py-2">
         <div class="card-body">
-          <form action="{{ url('admin/akun/input-akun') }}" method="POST">
+          <form action="{{ url('admin/keuangan/pemasukan') }}" method="POST">
             @csrf
+            <input type="hidden" name="status" value="0">
             <div class="form-group">
               <div class="form-group">
-                <label for="fullname">Nama Lengkap</label>
-                <input type="text" class="form-control @error('fullname') is-invalid @enderror" id="fullname"
-                  name="fullname" value="{{ old('fullname') }}">
-                @error('fullname')
+                <label for="jumlah">Nominal (Rp)</label>
+                <input type="text" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah"
+                  name="jumlah" value="{{ old('jumlah') }}" required>
+                @error('jumlah')
                 <div class="invalid-feedback">
                   {{ $message }}
                 </div>
                 @enderror
               </div>
 
-              <label for="email">Email (username)</label>
-              <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                name="username" value="{{ old('email') }}">
-              @error('email')
+              <label for="email">Keterangan</label>
+              <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" rows="3" required></textarea>
+              @error('keterangan')
               <div class="invalid-feedback">
                 {{ $message }}
               </div>
               @enderror
             </div>
-            
-            <div class="form-group">
-              <label for="position">Jabatan</label>
-              <select class="form-control @error('position') is-invalid @enderror" id="position" name="position">
-                <option selected disabled readonly>Pilih Jabatan</option>
-                @php($positions = \App\Position::all())
-                @foreach ($positions as $position)
-                <option value="{{ $position->id }}">{{ $position->position }}</option>
-                @endforeach
-              </select>
-              @error('position')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
-            <button class="btn btn-primary float-right mt-3" type="submit">Buat akun</button>
+            <button class="btn btn-primary float-right mt-3" type="submit">Submit</button>
           </form>
         </div>
       </div>

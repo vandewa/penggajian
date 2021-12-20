@@ -68,7 +68,10 @@ class EmployeeController extends Controller
     }
     public function index()
     {
-        return view('admin/dataKaryawan');
+        $employees = Employee::where('id', '!=', 10)
+        ->orderBy('full_name','asc')->get();
+
+        return view('admin/dataKaryawan', compact('employees'));
     }
 
     public function show(Employee $employee)
@@ -159,8 +162,7 @@ class EmployeeController extends Controller
         $id = auth()->user()->employee->id;
 
         $request->validate([
-            'alamat' => 'required',
-            'telp' => 'required|numeric',
+            'telp' => 'numeric',
         ]);
 
         $employee = \App\Employee::find($id);
@@ -183,17 +185,14 @@ class EmployeeController extends Controller
             $imageName = auth()->user()->employee->full_name . '.' . $request->image->extension();
             $request->image->move(public_path('img/employeePic/'), $imageName);
             $employee->profile_pic = $imageName;
-        } else if ($request->alamat == auth()->user()->employee->address && $request->telp == auth()->user()->employee->phone) {
-            session()->flash('profile_update_nochanges', 'Tidak ada data profile yang dirubah.');
-            return redirect()->back();
-        }
+        } 
 
         $employee->address = $request->alamat;
         $employee->phone = $request->telp;
+        $employee->come = $request->come;
         $employee->nik = $request->nik;
         $employee->npwp = $request->npwp;
         $employee->education_id = $request->education_id;
-        $employee->come = $request->come;
         $employee->save();
 
         session()->flash('profile_update', 'Profile berhasil dirubah.');

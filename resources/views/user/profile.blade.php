@@ -389,9 +389,9 @@
                     <div class="form-group row">
                         <label for="text" class="col-4 col-form-label">Tahun Masuk</label>
                         <div class="col-8">
-                            <input id="text" name="telp" class="form-control here @error('telp') is-invalid @enderror"
-                                required="required" type="text" maxlength="12" value="{{ old('telp') }}">
-                            @error('telp')
+                            <input id="text" name="come" class="form-control here @error('come') is-invalid @enderror"
+                                required="required" type="text"  value="{{ old('come') }}">
+                            @error('come')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
