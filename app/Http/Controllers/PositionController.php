@@ -16,6 +16,7 @@ class PositionController extends Controller
 
     public function show(Position $position)
     {
+
         $employees = $position->employees()->get();
         return view('admin/showJabatan', compact('position', 'employees'));
     }

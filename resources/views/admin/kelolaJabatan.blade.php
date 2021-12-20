@@ -53,7 +53,7 @@
                             <th>Gaji Pokok</th>
                             <th>Tunjangan</th>
                             <th>Total Pegawai</th>
-                            <th></th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

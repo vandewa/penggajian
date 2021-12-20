@@ -27,8 +27,9 @@
     <div class="col-xl-6 col-md-6 mb-6">
       <div class="card shadow h-100 py-2">
         <div class="card-body">
-          <form action="{{ url('admin/keuangan/pemasukan') }}" method="POST">
+          <form action="{{ url('admin/keuangan/'.$keuangan->id.'/edit') }}" method="POST">
             @csrf
+            @method('patch')
             <input type="hidden" name="status" value="0">
             <div class="form-group">
               <div class="form-group">
@@ -38,7 +39,7 @@
                         <span class="input-group-text" id="basic-addon2">Rp.</span>
                     </div>
                     <input type="text" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah"
-                    name="jumlah" value="{{ old('jumlah') }}" required>
+                    name="jumlah" value="{{ $keuangan->jumlah }}">
                   @error('jumlah')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -46,14 +47,14 @@
                     @enderror
                 </div>
               <label for="keterangan" class="mt-2">Keterangan</label>
-              <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" rows="3" required></textarea>
+              <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" rows="3" required>{{ $keuangan->keterangan }}</textarea>
               @error('keterangan')
               <div class="invalid-feedback">
                 {{ $message }}
               </div>
               @enderror
             </div>
-            <button class="btn btn-primary float-right mt-3" type="submit">Submit</button>
+            <button class="btn btn-warning float-right mt-3" type="submit">Edit</button>
           </form>
         </div>
       </div>
@@ -112,7 +113,7 @@
                               {{-- <a class="btn btn-info btn-sm" style="width: 65px;"
                                   href="{{ url('admin/keuangan/'.$keuangan->id) }}" role="button">Lihat</a> --}}
                               <a class="btn btn-warning btn-sm my-1" style="width: 65px;"
-                                  href="{{ url('admin/keuangan/'.$keuangan->id) }}"
+                                  href="{{ url('admin/keuangan/'.$keuangan->id.'/edit') }}"
                                   role="button">Edit</a>
                               <button type="button" class="btn btn-danger btn-sm d-inline" style="width: 65px;"
                                   data-toggle="modal"

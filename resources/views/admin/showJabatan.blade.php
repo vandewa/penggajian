@@ -154,16 +154,16 @@
                                     cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nip</th>
                                             <th>Nama Lengkap</th>
+                                            <th>Jabatan</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($employees as $employee)
                                         <tr>
-                                            <td>{{ $employee->user->nip }}</td>
                                             <td>{{ $employee->full_name }}</td>
+                                            <td>{{ $position->position }}</td>
                                             <td class="text-center">
                                                 <a class="btn btn-info btn-sm" style="width: 60px;"
                                                     href="{{ url('admin/data-karyawan/'.$employee->id) }}"

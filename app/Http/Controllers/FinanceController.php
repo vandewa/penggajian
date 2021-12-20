@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Finance;
+use App\Position;
 
 class FinanceController extends Controller
 {
@@ -14,7 +15,7 @@ class FinanceController extends Controller
      */
     public function index()
     {
-        $finance = Finance::orderBy('created_at', 'desc')->get();
+        $finance = Finance::orderBy('created_at', 'asc')->get();
 
         return view('admin/dataKeuangan', compact('finance'));
     }
@@ -25,8 +26,9 @@ class FinanceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin/inputPemasukan');
+    {   $positions = Position::get();
+        $finance = Finance::orderBy('created_at', 'asc')->get();
+        return view('admin/inputPemasukan', compact('finance', 'positions'));
     }
 
     /**
@@ -43,7 +45,7 @@ class FinanceController extends Controller
             'status' => $request->status
         ]);
         session()->flash('finance_store', 'Pemasukan berhasil ditambahkan.');
-        return redirect('admin/keuangan');
+        return redirect('admin/keuangan/pemasukan');
     }
 
     /**
@@ -53,8 +55,10 @@ class FinanceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $keuangan = Finance::where('id', $id)->first();
+        $finance = Finance::orderBy('created_at', 'asc')->get();
+        return view('admin/showKeuangan', compact('keuangan', 'finance'));
     }
 
     /**
@@ -77,7 +81,13 @@ class FinanceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Finance::where('id', $id)
+            ->update([
+            'jumlah' => $request->jumlah,
+            'keterangan' => $request->keterangan,
+        ]);     
+        session()->flash('finance_store', 'Pemasukan berhasil dirubah.');
+        return redirect('admin/keuangan/pemasukan');
     }
 
     /**
@@ -91,6 +101,6 @@ class FinanceController extends Controller
         Finance::where('id', $id)->delete();
 
         session()->flash('deleted', 'Data keuangan berhasil dihapus.');
-        return redirect('admin/keuangan');
+        return redirect('admin/keuangan/pemasukan');
     }
 }

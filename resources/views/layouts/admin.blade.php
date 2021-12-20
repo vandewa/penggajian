@@ -175,7 +175,7 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        Selamat Datang, {{ auth()->user()->employee->full_name  }}
+                        Selamat Datang, {{ auth()->user()->employee->full_name ?? ''  }}
 
                     </ul>
 

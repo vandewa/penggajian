@@ -34,6 +34,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // Keuangan
     Route::get('admin/keuangan', 'FinanceController@index');
     Route::get('admin/keuangan/pemasukan', 'FinanceController@create');
+    Route::get('admin/keuangan/{finance}', 'FinanceController@show');
+    Route::patch('admin/keuangan/{finance}/edit', 'FinanceController@update');
     Route::post('admin/keuangan/pemasukan', 'FinanceController@store');
     Route::delete('admin/keuangan/{finance}', 'FinanceController@destroy');
     // Data Karyawan

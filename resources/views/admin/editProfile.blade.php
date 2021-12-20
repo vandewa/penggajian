@@ -67,7 +67,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 mb-3">
       <div class="card">
         <div class="card-body">
           <div class="row">
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 ">
               <form action="{{ url('admin/data-karyawan/'.$employee->id) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf

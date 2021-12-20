@@ -4,35 +4,35 @@ $(document).ready(function () {
         dom: 'Bfrtip',
         buttons: [{
             extend: 'copy',
-            filename: 'Data Akun CakeCode',
+            filename: 'Data Akun Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'csv',
-            filename: 'Data Akun CakeCode',
+            filename: 'Data Akun Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'excel',
-            filename: 'Data Akun CakeCode',
+            filename: 'Data Akun Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'pdf',
-            filename: 'Data Akun CakeCode',
+            filename: 'Data Akun Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'print',
-            filename: 'Data Akun CakeCode',
+            filename: 'Data Akun Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
@@ -54,35 +54,35 @@ $(document).ready(function () {
         dom: 'Bfrtip',
         buttons: [{
             extend: 'copy',
-            filename: 'Data Karyawan CakeCode',
+            filename: 'Data Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'csv',
-            filename: 'Data Karyawan CakeCode',
+            filename: 'Data Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'excel',
-            filename: 'Data Karyawan CakeCode',
+            filename: 'Data Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'pdf',
-            filename: 'Data Karyawan CakeCode',
+            filename: 'Data Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'print',
-            filename: 'Data Karyawan CakeCode',
+            filename: 'Data Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
@@ -113,35 +113,141 @@ $(document).ready(function () {
         dom: 'Bfrtip',
         buttons: [{
             extend: 'copy',
-            filename: 'Data Posisi CakeCode',
+            filename: 'Data Posisi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'csv',
-            filename: 'Data Posisi CakeCode',
+            filename: 'Data Posisi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'excel',
-            filename: 'Data Posisi CakeCode',
+            filename: 'Data Posisi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'pdf',
-            filename: 'Data Posisi CakeCode',
+            filename: 'Data Posisi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'print',
-            filename: 'Data Posisi CakeCode',
+            filename: 'Data Posisi Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }],
+        "aaSorting": [
+            [1, 'desc']
+        ],
+        "columns": [{
+            "width": "35%"
+        }, {
+            "width": "20%"
+        }, {
+            "width": "20%"
+        }, {
+            "width": "15%"
+        }, {
+            "width": "10%"
+        }, ]
+    });
+    $('#dataTablePemasukan').DataTable({
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'copy',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'csv',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'excel',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'pdf',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'print',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }],
+        "aaSorting": [
+            [1, 'desc']
+        ],
+        "columns": [{
+            "width": "35%"
+        }, {
+            "width": "20%"
+        }, {
+            "width": "20%"
+        }, {
+            "width": "15%"
+        }, {
+            "width": "10%"
+        }, ]
+    });
+    $('#dataTablePengeluaran').DataTable({
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'copy',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'csv',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'excel',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'pdf',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'print',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
@@ -166,35 +272,35 @@ $(document).ready(function () {
         dom: 'Bfrtip',
         buttons: [{
             extend: 'copy',
-            filename: 'Data Karyawan berdasarkan posisi CakeCode',
+            filename: 'Data Karyawan berdasarkan posisi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'csv',
-            filename: 'Data Karyawan berdasarkan posisi CakeCode',
+            filename: 'Data Karyawan berdasarkan posisi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'excel',
-            filename: 'Data Karyawan berdasarkan posisi CakeCode',
+            filename: 'Data Karyawan berdasarkan posisi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'pdf',
-            filename: 'Data Karyawan berdasarkan posisi CakeCode',
+            filename: 'Data Karyawan berdasarkan posisi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'print',
-            filename: 'Data Karyawan berdasarkan posisi CakeCode',
+            filename: 'Data Karyawan berdasarkan posisi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
@@ -213,35 +319,35 @@ $(document).ready(function () {
         dom: 'Bfrtip',
         buttons: [{
             extend: 'copy',
-            filename: 'Data Absensi Karyawan CakeCode',
+            filename: 'Data Absensi Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'csv',
-            filename: 'Data Absensi Karyawan CakeCode',
+            filename: 'Data Absensi Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'excel',
-            filename: 'Data Absensi Karyawan CakeCode',
+            filename: 'Data Absensi Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'pdf',
-            filename: 'Data Absensi Karyawan CakeCode',
+            filename: 'Data Absensi Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'print',
-            filename: 'Data Absensi Karyawan CakeCode',
+            filename: 'Data Absensi Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
@@ -257,35 +363,35 @@ $(document).ready(function () {
         dom: 'Bfrtip',
         buttons: [{
             extend: 'copy',
-            filename: 'Data Absensi CakeCode',
+            filename: 'Data Absensi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'csv',
-            filename: 'Data Absensi CakeCode',
+            filename: 'Data Absensi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'excel',
-            filename: 'Data Absensi CakeCode',
+            filename: 'Data Absensi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'pdf',
-            filename: 'Data Absensi CakeCode',
+            filename: 'Data Absensi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'print',
-            filename: 'Data Absensi CakeCode',
+            filename: 'Data Absensi Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
@@ -310,35 +416,35 @@ $(document).ready(function () {
         dom: 'Bfrtip',
         buttons: [{
             extend: 'copy',
-            filename: 'Data Komplain Karyawan CakeCode',
+            filename: 'Data Komplain Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'csv',
-            filename: 'Data Komplain Karyawan CakeCode',
+            filename: 'Data Komplain Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'excel',
-            filename: 'Data Komplain Karyawan CakeCode',
+            filename: 'Data Komplain Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'pdf',
-            filename: 'Data Komplain Karyawan CakeCode',
+            filename: 'Data Komplain Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'print',
-            filename: 'Data Komplain Karyawan CakeCode',
+            filename: 'Data Komplain Karyawan Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
@@ -366,35 +472,35 @@ $(document).ready(function () {
         dom: 'Bfrtip',
         buttons: [{
             extend: 'copy',
-            filename: 'Data Penggajian CakeCode',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'csv',
-            filename: 'Data Penggajian CakeCode',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'excel',
-            filename: 'Data Penggajian CakeCode',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'pdf',
-            filename: 'Data Penggajian CakeCode',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'print',
-            filename: 'Data Penggajian CakeCode',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
