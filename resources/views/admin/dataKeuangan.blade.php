@@ -77,8 +77,8 @@
                             <th>No</th>
                             <th>Tanggal</th>
                             <th>Keterangan</th>
-                            <th>Nominal</th>
-                            <th>Status</th>
+                            <th>Pemasukan</th>
+                            <th>Pengeluaran</th>
                             <th>Saldo</th>
                         </tr>
                     </thead>
@@ -92,14 +92,14 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($keuangan->created_at))->isoFormat('D MMMM Y') }}</td>
                             <td>{{ $keuangan->keterangan }}</td>
-                            <td>{{ $keuangan->jumlah }}</td>
-                            {{-- <td class="text-success text-right"> @if($keuangan->status == 0)Rp. {{ number_format($keuangan->jumlah,0,'','.') }}@else - @endif</td>
-                            <td class="text-danger text-right"> @if($keuangan->status == 1)Rp. {{ number_format($keuangan->jumlah,0,'','.') }}@else - @endif</td> --}}
-                            <td
+                            {{-- <td>{{ $keuangan->jumlah }}</td> --}}
+                            <td class="text-success text-right"> @if($keuangan->status == 0)Rp. {{ number_format($keuangan->jumlah,0,'','.') }}@else - @endif</td>
+                            <td class="text-danger text-right"> @if($keuangan->status == 1)Rp. {{ number_format($keuangan->jumlah,0,'','.') }}@else - @endif</td>
+                            {{-- <td
                                 class="font-weight-bold align-middle text-center @if($keuangan->status == 0) text-success @else text-danger  @endif">
                                 @if($keuangan->status == 0) Pemasukan @else Pengeluaran
                                 @endif
-                            </td>
+                            </td> --}}
                             <td class="text-right">
                                 Rp.  @if($keuangan->status == 0) {{ number_format(($saldo = $saldo + $keuangan->jumlah),0,'','.') }} @else 
                                 {{ number_format(($saldo = $saldo - $keuangan->jumlah),0,'','.') }}

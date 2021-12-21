@@ -88,7 +88,7 @@
                   <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                       <hr>
-                      <center>Silahkan menghubungi HRD ^_^</center>
+                      <center>Silahkan menghubungi Admin ^_^</center>
                       <hr>
                     </div>
                   </div>
