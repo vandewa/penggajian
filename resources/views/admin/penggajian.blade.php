@@ -94,7 +94,7 @@
                             <th class="text-center align-middle">Penambahan</th>
                             <th class="text-center align-middle">Potongan</th>
                             <th class="text-center align-middle">Gaji Bersih</th>
-                            <th class="text-center align-middle"></th>
+                            <th class="text-center align-middle">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -147,7 +147,7 @@
                                                             {{ Carbon\Carbon::parse('7-'.$postMonth.'-2020')->locale('id')->monthName }}
                                                             {{ $postYear }}</p>
                                                     </div>
-                                                    <br><br><br><br><br>
+                                                    <br><br><br>
                                                     <div class="col-2">
                                                         <p class="text-left mb-0" style="font-size: 12px">Nama Lengkap
                                                         </p>
@@ -163,8 +163,18 @@
                                                             &nbsp;{{ $e->position->position }}
                                                         </p>
                                                         <p class="text-left mb-0 font-weight-bold"
-                                                        style="font-size: 12px">:
-                                                        &nbsp;{{ $e->phone }}</p>
+                                                            style="font-size: 12px">:
+                                                            &nbsp;{{ $e->phone }}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <p class="text-left mb-0" style="font-size: 12px">Alamat
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <p class="text-left mb-0 font-weight-bold"
+                                                            style="font-size: 12px">:
+                                                            &nbsp;{{ $e->address }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row mt-3">

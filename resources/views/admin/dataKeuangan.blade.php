@@ -32,6 +32,21 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Data Keuangan Hadiyani & Partners Law Firm</h1>
     <p class="mb-4">Seluruh data keuangan yang ada di Database Aplikasi E-Payroll Hadiyani & Partners Law Firm</p>
+
+    {{-- <div class="col-5 justify-content-end">
+        <form action={{ url('admin/keuangan') }} method="post">
+            <div class="input-group daterange mr-3 mt-3" style="height: 48px;">
+                @csrf
+                <input type="date" name="tanggalAwal" style="text-align: center; font-weight: bolder;"
+                     class="form-control text-primary" value="{{ $first }}">
+                <button class="btn btn-sm btn-secondary" style="height: 38px; font-weight:900; padding-bottom: 5px;"
+                    disabled>-</button>
+                <input type="date" name="tanggal" style="text-align: center; font-weight: bolder;" class="form-control text-primary mr-3" value="{{ $last }}">
+                <input type="submit" class="btn btn-sm btn-primary" style="height: 38px;" value="submit">
+            </div>
+        </form>
+    </div> --}}
+    
     @if (session()->has('deleted'))
     <div class="alert alert-info alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -44,6 +59,14 @@
         {{ session()->get('finance_store') }}
     </div>
     @endif
+    @if (session()->has('presensi_update'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {{ session()->get('presensi_update') }}
+    </div>
+    @endif
+
+    
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -51,28 +74,38 @@
                 <table class="table table-bordered" id="dataKeuangan" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Tanggal</th>
                             <th>Keterangan</th>
                             <th>Nominal</th>
                             <th>Status</th>
                             <th>Saldo</th>
-                            {{-- <th>Aksi</th> --}}
                         </tr>
                     </thead>
                     <tbody>
                         @php
                             $saldo = 0;
+                            $no = 1;
                         @endphp
                         @foreach ($finance as $keuangan)
                         <tr>
+                            <td>{{ $no++ }}</td>
                             <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($keuangan->created_at))->isoFormat('D MMMM Y') }}</td>
                             <td>{{ $keuangan->keterangan }}</td>
-                            <td>Rp. {{ number_format($keuangan->jumlah,0,'','.') }}</td>
+                            <td>{{ $keuangan->jumlah }}</td>
+                            {{-- <td class="text-success text-right"> @if($keuangan->status == 0)Rp. {{ number_format($keuangan->jumlah,0,'','.') }}@else - @endif</td>
+                            <td class="text-danger text-right"> @if($keuangan->status == 1)Rp. {{ number_format($keuangan->jumlah,0,'','.') }}@else - @endif</td> --}}
                             <td
                                 class="font-weight-bold align-middle text-center @if($keuangan->status == 0) text-success @else text-danger  @endif">
                                 @if($keuangan->status == 0) Pemasukan @else Pengeluaran
-                                @endif</td>
-                            <td>Rp. {{ number_format($saldo += $keuangan->jumlah,0,'','.') }}</td>
+                                @endif
+                            </td>
+                            <td class="text-right">
+                                Rp.  @if($keuangan->status == 0) {{ number_format(($saldo = $saldo + $keuangan->jumlah),0,'','.') }} @else 
+                                {{ number_format(($saldo = $saldo - $keuangan->jumlah),0,'','.') }}
+                                @endif
+                                </td>
+                              
                         </tr>
 
                         {{-- Delete Modal --}}

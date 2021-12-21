@@ -259,7 +259,7 @@ class PayrollHistoryController extends Controller
                 return redirect('admin/penggajian');
             }
         }
-        if (Carbon::now()->endOfMonth()->diffInDays(Carbon::now()) >= 7) {
+        if (Carbon::now()->endOfMonth()->diffInDays(Carbon::now()) >=  7) {
             session()->flash('not_time', 'Belum Waktunya');
             return redirect('admin/penggajian');
         }
@@ -302,7 +302,7 @@ class PayrollHistoryController extends Controller
         //penambahan
         $penambahan = Allowance::where('type', 'penambahan')->get();
         $potongan = Allowance::where('type', 'potongan')->get();
-        $employees = Employee::where('id', auth()->user()->employee->id)->get();
+        $employees = Employee::with('user')->where('id', auth()->user()->employee->id)->get();
 
         $hasilPenambahan = array();
         $hasilPotongan = array();
@@ -325,6 +325,7 @@ class PayrollHistoryController extends Controller
         // dd($hasilPenambahan);
         $monthUnique = array_unique($month);
         $yearUnique = array_unique($year);
+        
 
 
         return view('user/penggajian', compact('employees', 'monthUnique', 'yearUnique', 'firstMonth', 'lastMonth', 'postMonth', 'postYear', 'hasilPenambahan', 'hasilPotongan', 'potonganPerKaryawan', 'penambahanPerKaryawan', 'penambahan', 'potongan'));

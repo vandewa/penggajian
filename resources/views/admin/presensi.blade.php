@@ -62,7 +62,7 @@
                             <th>Jam</th>
                             <th>Nama Lengkap</th>
                             <th>Status</th>
-                            <th></th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

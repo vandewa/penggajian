@@ -162,6 +162,115 @@ $(document).ready(function () {
             "width": "10%"
         }, ]
     });
+
+    $('#dataShowPemasukan').DataTable({
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'copy',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'csv',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'excel',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'pdf',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'print',
+            filename: 'Data Pemasukan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }],
+        "aaSorting": [
+            [1, 'desc']
+        ],
+        "columns": [{
+            "width": "35%"
+        }, {
+            "width": "20%"
+        }, {
+            "width": "20%"
+        }, {
+            "width": "15%"
+        }, {
+            "width": "10%"
+        }, ]
+    });
+
+    $('#dataShowPengeluaran').DataTable({
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'copy',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'csv',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'excel',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'pdf',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }, {
+            extend: 'print',
+            filename: 'Data Pengeluaran Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th:not(:last-child)'
+            }
+
+        }],
+        "aaSorting": [
+            [1, 'desc']
+        ],
+        "columns": [{
+            "width": "35%"
+        }, {
+            "width": "20%"
+        }, {
+            "width": "20%"
+        }, {
+            "width": "15%"
+        }, {
+            "width": "10%"
+        }, ]
+    });
+
     $('#dataTablePemasukan').DataTable({
         dom: 'Bfrtip',
         buttons: [{
@@ -355,7 +464,7 @@ $(document).ready(function () {
         }],
         "pageLength": 50,
         "aaSorting": [
-            [1, 'asc']
+            [3, 'asc']
         ]
     });
 
@@ -511,48 +620,88 @@ $(document).ready(function () {
             [2, 'asc']
         ],
     });
-    $('#dataKeuangan').DataTable({
+    $('#dataPenggajianUser').DataTable({
         dom: 'Bfrtip',
         buttons: [{
             extend: 'copy',
-            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'csv',
-            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'excel',
-            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'pdf',
-            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }, {
             extend: 'print',
-            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            filename: 'Data Penggajian Hadiyani & Partners Law Firm',
             exportOptions: {
                 columns: 'th:not(:last-child)'
             }
 
         }],
         "pageLength": 50,
-        "aaSorting": [
-            [2, 'asc']
-        ],
+        
+    });
+
+    $('#dataKeuangan').DataTable({
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'copy',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th'
+            }
+
+        }, {
+            extend: 'csv',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th'
+            }
+
+        }, {
+            extend: 'excel',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th'
+            }
+
+        }, {
+            extend: 'pdf',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th'
+            }
+
+        }, {
+            extend: 'print',
+            filename: 'Data Keuangan Hadiyani & Partners Law Firm',
+            exportOptions: {
+                columns: 'th'
+            }
+
+        }],
+        "pageLength": 50,
+       
     });
 
     $('#tablePenambahan').DataTable({

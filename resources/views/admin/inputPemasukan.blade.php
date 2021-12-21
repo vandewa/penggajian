@@ -44,7 +44,7 @@
                     {{ $message }}
                   </div>
                     @enderror
-                </div>
+              </div>
               <label for="keterangan" class="mt-2">Keterangan</label>
               <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" rows="3" required></textarea>
               @error('keterangan')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Finance;
 use App\Position;
+use Carbon\Carbon;
 
 class FinanceController extends Controller
 {
@@ -15,9 +16,32 @@ class FinanceController extends Controller
      */
     public function index()
     {
-        $finance = Finance::orderBy('created_at', 'asc')->get();
+        $finance = Finance::paginate(50);
 
-        return view('admin/dataKeuangan', compact('finance'));
+        $first = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        $last = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        $max = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        $finances = Finance::where('created_at', '>=', $max)->get();
+
+
+        if (session()->has('first')) {
+            $first = session()->get('first');
+            $last = session()->get('last');
+            $finances = Finance::where('created_at', '<', Carbon::parse($last)->addDay())->where('created_at', '>=', $first)->get();
+        }
+        
+
+        return view('admin/dataKeuangan', compact('finance', 'first', 'last', 'max', 'finances'));
+    }
+
+    public function indexSearch(Request $request)
+    {
+        $first = $request->tanggalAwal;
+        $last = $request->tanggal;
+        $max = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        $finances = Finance::where('created_at', '<', Carbon::parse($last)->addDay())->where('created_at', '>=', $first)->get();
+      
+        return view('admin/dataKeuangan', compact('first', 'last', 'max', 'finances'));
     }
 
     /**
@@ -82,12 +106,12 @@ class FinanceController extends Controller
         $a = Finance::where('id', $id)->first();
         if($a->status == 0){
             $keuangan = Finance::where('id', $id)->first();
-            $finance = Finance::orderBy('created_at', 'asc')->get();
+            $finance = Finance::where('status', 0)->orderBy('created_at', 'asc')->get();
             return view('admin/showPemasukan', compact('keuangan', 'finance'));
         } else {
             $keuangan = Finance::where('id', $id)->first();
-            $finance = Finance::orderBy('created_at', 'asc')->get();
-            return view('admin/showPemasukan', compact('keuangan', 'finance'));
+            $finance = Finance::where('status', 1)->orderBy('created_at', 'asc')->get();
+            return view('admin/showPengeluaran', compact('keuangan', 'finance'));
         }
     }
 

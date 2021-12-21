@@ -33,6 +33,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('admin/akun/{id}', 'UserController@destroy');
     // Keuangan
     Route::get('admin/keuangan', 'FinanceController@index');
+    Route::post('admin/keuangan', 'FinanceController@indexSearch');
     Route::get('admin/keuangan/pemasukan', 'FinanceController@create');
     Route::get('admin/keuangan/pengeluaran', 'FinanceController@createPengeluaran');
     Route::get('admin/keuangan/{finance}', 'FinanceController@show');

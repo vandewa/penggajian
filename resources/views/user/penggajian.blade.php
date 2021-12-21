@@ -85,10 +85,10 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataPenggajian" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataPenggajianUser" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th class="text-center align-middle">Nip</th>
+                            <th class="text-center align-middle">Username (email)</th>
                             <th class="text-center align-middle">Nama Lengkap</th>
                             <th class="text-center align-middle">Jabatan</th>
                             <th class="text-center align-middle">Gaji Pokok</th>
@@ -99,10 +99,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $i = 1;
+                        @endphp
                         @foreach ($employees as $row => $e)
                         @if ($postMonth.$postYear != Carbon\Carbon::now()->month.Carbon\Carbon::now()->year)
                         <tr>
-                            <td>{{ $e->user->nip }}</td>
+                            <td>{{ $e->user->username }}</td>
                             <td>{{ $e->full_name }}</td>
                             <td>{{ $e->position->position }}</td>
                             <td>Rp. {{ number_format($e->position->salary,0,'','.') }}</td>
@@ -134,15 +137,8 @@
                                         </div>
                                         <div class="modal-body text-dark">
                                             <div class="row">
-                                                <div class="col-9 pl-5">
-                                                    <h2 class="text-left text-dark font-weight-bold mb-0 mt-1">
-                                                        CakeCode
-                                                    </h2>
-                                                    <h4 class="text-left text-dark">learn code with
-                                                        some cake</h4>
-                                                </div>
-                                                <div class="col-3 pr-4">
-                                                    <img src="{{ asset('img/logoWarna.png') }}" height="80px;">
+                                                <div class="col-12">
+                                                    <center><img src="{{ asset('img/logoo.png') }}"></center>
                                                 </div>
                                             </div>
                                             <hr class="sidebar-divider d-none d-md-block">
@@ -159,17 +155,14 @@
                                                             {{ Carbon\Carbon::parse('7-'.$postMonth.'-2020')->locale('id')->monthName }}
                                                             {{ $postYear }}</p>
                                                     </div>
-                                                    <br><br><br><br><br>
-                                                    <div class="col-3">
-                                                        <p class="text-left mb-0" style="font-size: 12px">Nip</p>
+                                                    <br><br><br>
+                                                    <div class="col-2">
                                                         <p class="text-left mb-0" style="font-size: 12px">Nama Lengkap
                                                         </p>
                                                         <p class="text-left mb-0" style="font-size: 12px">Jabatan</p>
+                                                        <p class="text-left mb-0" style="font-size: 12px">No. Hp</p>
                                                     </div>
-                                                    <div class="col-5">
-                                                        <p class="text-left mb-0 font-weight-bold"
-                                                            style="font-size: 12px">:
-                                                            &nbsp;{{ $e->user->nip }}</p>
+                                                    <div class="col-4">
                                                         <p class="text-left mb-0 font-weight-bold"
                                                             style="font-size: 12px">:
                                                             &nbsp;{{ $e->full_name }}</p>
@@ -177,6 +170,19 @@
                                                             style="font-size: 12px">:
                                                             &nbsp;{{ $e->position->position }}
                                                         </p>
+                                                        <p class="text-left mb-0 font-weight-bold"
+                                                            style="font-size: 12px">:
+                                                            &nbsp;{{ $e->phone }}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <p class="text-left mb-0" style="font-size: 12px">Alamat
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <p class="text-left mb-0 font-weight-bold"
+                                                            style="font-size: 12px">:
+                                                            &nbsp;{{ $e->address }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row mt-3">
@@ -264,6 +270,13 @@
                                                         </h5>
                                                     </div>
                                                 </div>
+                                                <div class="row py-0">
+                                                    <div
+                                                        class="col-12 bg-primary text-light text-center font-weight-bold py-0">
+                                                        <h6 class="py-1 my-0">{{ Terbilang::make($e->position->salary+$e->position->job_allowance+$totalPenambahan-$totalPotongan, ' rupiah', 'Terbilang: ') }}
+                                                        </h6>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -284,7 +297,7 @@
                         @elseif(Carbon\Carbon::parse($c->created_at)->month ==
                         Carbon\Carbon::now()->month)
                         <tr>
-                            <td>{{ $e->user->nip }}</td>
+                            <td>{{ $e->user->username }}</td>
                             <td>{{ $e->full_name }}</td>
                             <td>{{ $e->position->position }}</td>
                             <td>Rp. {{ number_format($e->position->salary,0,'','.') }}</td>
@@ -322,15 +335,8 @@
                                         </div>
                                         <div class="modal-body text-dark">
                                             <div class="row">
-                                                <div class="col-9 pl-5">
-                                                    <h2 class="text-left text-dark font-weight-bold mb-0 mt-1">
-                                                        CakeCode
-                                                    </h2>
-                                                    <h4 class="text-left text-dark">learn code with
-                                                        some cake</h4>
-                                                </div>
-                                                <div class="col-3 pr-4">
-                                                    <img src="{{ asset('img/logoWarna.png') }}" height="80px;">
+                                                <div class="col-12">
+                                                    <center><img src="{{ asset('img/logoo.png') }}"></center>
                                                 </div>
                                             </div>
                                             <hr class="sidebar-divider d-none d-md-block">
@@ -347,17 +353,14 @@
                                                             {{ Carbon\Carbon::now()->locale('id')->monthName }}
                                                             {{ $postYear }}</p>
                                                     </div>
-                                                    <br><br><br><br><br>
-                                                    <div class="col-3">
-                                                        <p class="text-left mb-0" style="font-size: 12px">Nip</p>
+                                                    <br><br><br>
+                                                    <div class="col-2">
                                                         <p class="text-left mb-0" style="font-size: 12px">Nama Lengkap
                                                         </p>
                                                         <p class="text-left mb-0" style="font-size: 12px">Jabatan</p>
+                                                        <p class="text-left mb-0" style="font-size: 12px">No. Hp</p>
                                                     </div>
-                                                    <div class="col-5">
-                                                        <p class="text-left mb-0 font-weight-bold"
-                                                            style="font-size: 12px">:
-                                                            &nbsp;{{ $e->user->nip }}</p>
+                                                    <div class="col-4">
                                                         <p class="text-left mb-0 font-weight-bold"
                                                             style="font-size: 12px">:
                                                             &nbsp;{{ $e->full_name }}</p>
@@ -365,6 +368,19 @@
                                                             style="font-size: 12px">:
                                                             &nbsp;{{ $e->position->position }}
                                                         </p>
+                                                        <p class="text-left mb-0 font-weight-bold"
+                                                            style="font-size: 12px">:
+                                                            &nbsp;{{ $e->phone }}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <p class="text-left mb-0" style="font-size: 12px">Alamat
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <p class="text-left mb-0 font-weight-bold"
+                                                            style="font-size: 12px">:
+                                                            &nbsp;{{ $e->address }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row mt-3">
@@ -490,6 +506,13 @@
                                                             (A-B)&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;Rp.
                                                             {{ number_format($e->position->salary+$e->position->job_allowance+$totalPenambahan-$totalPotongan ,0,'','.') }}
                                                         </h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row py-0">
+                                                    <div
+                                                        class="col-12 bg-primary text-light text-center font-weight-bold py-0">
+                                                        <h6 class="py-1 my-0">{{ Terbilang::make($e->position->salary+$e->position->job_allowance+$totalPenambahan-$totalPotongan, ' rupiah', 'Terbilang: ') }}
+                                                        </h6>
                                                     </div>
                                                 </div>
                                             </div>
