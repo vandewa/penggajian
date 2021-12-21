@@ -33,10 +33,10 @@
                 <div class="input-group daterange mr-3 mt-3" style="height: 48px;">
                     @csrf
                     <input type="date" name="tanggalAwal" style="text-align: center; font-weight: bolder;"
-                        min="{{ $min }}" max="{{ $max }}" class="form-control text-primary" value="{{ $first }}">
+                     max="{{ $max }}" class="form-control text-primary" value="{{ $first }}">
                     <button class="btn btn-sm btn-secondary" style="height: 38px; font-weight:900; padding-bottom: 5px;"
                         disabled>-</button>
-                    <input type="date" name="tanggal" style="text-align: center; font-weight: bolder;" min="{{ $min }}"
+                    <input type="date" name="tanggal" style="text-align: center; font-weight: bolder;"
                         max="{{ $max }}" class="form-control text-primary mr-3" value="{{ $last }}">
                     <input type="submit" class="btn btn-sm btn-primary" style="height: 38px;" value="submit">
                 </div>
